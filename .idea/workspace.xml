@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="26363f89-0b20-4392-9063-57e2eb66d29c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/LMSApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/LMSController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/lms/home-view.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2iEES5MYe2pKD6YSUj0s1ZVoqIW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.DatabaseUtilTest.executor": "Run",
+    "Application.DatabaseUtilTestss.executor": "Run",
+    "Application.HelloApplication.executor": "Run",
+    "Application.LMSApplication.executor": "Run",
+    "JUnit.DatabaseUtilTest.testAddBookToDatabase.executor": "Run",
+    "JUnit.DatabaseUtilTest.testAddBorrowedBookToDatabase.executor": "Run",
+    "JUnit.DatabaseUtilTest.testAddLibrarianToDatabase.executor": "Run",
+    "JUnit.DatabaseUtilTest.testAddPatronToDatabase.executor": "Run",
+    "JUnit.DatabaseUtilTest.testAddTransactionToDatabase.executor": "Run",
+    "JUnit.DatabaseUtilTest.testDeleteBookFromDatabase.executor": "Run",
+    "JUnit.DatabaseUtilTest.testDeleteBorrowedBookFromDatabase.executor": "Run",
+    "JUnit.DatabaseUtilTest.testDeleteLibrarianFromDatabase.executor": "Run",
+    "JUnit.DatabaseUtilTest.testDeletePatronFromDatabase.executor": "Run",
+    "JUnit.DatabaseUtilTest.testGetBookFromDatabase.executor": "Run",
+    "JUnit.DatabaseUtilTest.testGetBorrowedBookFromDatabase.executor": "Run",
+    "JUnit.DatabaseUtilTest.testGetLibrarianFromDatabase.executor": "Run",
+    "JUnit.DatabaseUtilTest.testGetPatronFromDatabase.executor": "Run",
+    "JUnit.DatabaseUtilTest.testUpdateBookInDatabase.executor": "Run",
+    "JUnit.DatabaseUtilTest.testUpdateBorrowedBookInDatabase.executor": "Run",
+    "JUnit.DatabaseUtilTest.testUpdateLibrarianInDatabase.executor": "Run",
+    "JUnit.DatabaseUtilTest.testUpdatePatronInDatabase.executor": "Run",
+    "JUnit.DatabaseUtilTest.testUpdateTransactionInDatabase.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.3908046",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="views" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.DatabaseUtilTest.testUpdateTransactionInDatabase">
+    <configuration name="DatabaseUtilTest.testAddBookToDatabase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LMS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="views.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="views" />
+      <option name="MAIN_CLASS_NAME" value="views.DatabaseUtilTest" />
+      <option name="METHOD_NAME" value="testAddBookToDatabase" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DatabaseUtilTest.testAddPatronToDatabase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LMS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="views.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="views" />
+      <option name="MAIN_CLASS_NAME" value="views.DatabaseUtilTest" />
+      <option name="METHOD_NAME" value="testAddPatronToDatabase" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DatabaseUtilTest.testAddTransactionToDatabase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LMS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="views.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="views" />
+      <option name="MAIN_CLASS_NAME" value="views.DatabaseUtilTest" />
+      <option name="METHOD_NAME" value="testAddTransactionToDatabase" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DatabaseUtilTest.testGetLibrarianFromDatabase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LMS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="views.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="views" />
+      <option name="MAIN_CLASS_NAME" value="views.DatabaseUtilTest" />
+      <option name="METHOD_NAME" value="testGetLibrarianFromDatabase" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DatabaseUtilTest.testUpdateTransactionInDatabase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LMS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="views.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="views" />
+      <option name="MAIN_CLASS_NAME" value="views.DatabaseUtilTest" />
+      <option name="METHOD_NAME" value="testUpdateTransactionInDatabase" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.DatabaseUtilTest.testUpdateTransactionInDatabase" />
+        <item itemvalue="JUnit.DatabaseUtilTest.testAddBookToDatabase" />
+        <item itemvalue="JUnit.DatabaseUtilTest.testAddPatronToDatabase" />
+        <item itemvalue="JUnit.DatabaseUtilTest.testAddTransactionToDatabase" />
+        <item itemvalue="JUnit.DatabaseUtilTest.testGetLibrarianFromDatabase" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-322ed176" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="26363f89-0b20-4392-9063-57e2eb66d29c" name="Changes" comment="" />
+      <created>1719047337175</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1719047337175</updated>
+    </task>
+    <servers />
+  </component>
+</project>
