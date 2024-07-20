@@ -1,0 +1,18 @@
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.lms.controller.patron.ManagePatronController">
+    <VBox spacing="10" alignment="CENTER">
+        <HBox spacing="10" alignment="CENTER">
+            <Button text="Add Patron" onAction="#handleAddPatron"/>
+            <Button text="Update Patron" onAction="#handleUpdatePatron"/>
+            <Button text="Delete Patron" onAction="#handleDeletePatron"/>
+        </HBox>
+        <TableView fx:id="patronsTableView">
+            <!-- Define TableColumns for patron details -->
+        </TableView>
+    </VBox>
+</AnchorPane>

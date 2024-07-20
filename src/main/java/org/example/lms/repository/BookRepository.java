@@ -19,27 +19,35 @@ public class BookRepository {
         statement.setString(2, book.getTitle());
         statement.setString(3, book.getAuthor());
         statement.setBoolean(4, book.isAvailable());
-        statement.setInt(5, book.getLibraryId());
-        statement.executeUpdate();
+        statement.setInt(5, book.getLibraryID());
     }
+
 
     public void addBookToDatabase(Book book) {
         String query = "INSERT INTO Book (Isbn, Title, Author, IsAvailable, LibraryID) VALUES (?, ?, ?, ?, ?)";
         try (Connection connection = DatabaseUtil.getInstance().getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
             setBookParameters(book, statement);
+            int rowsAffected = statement.executeUpdate();
+            System.out.println("Rows affected: " + rowsAffected);
         } catch (SQLException e) {
             e.printStackTrace(); // Handle exceptions appropriately (e.g., logging)
         }
     }
 
     public void updateBookInDatabase(Book book) {
-        String query = "UPDATE Book SET Title = ?, Author = ?, IsAvailable = ? WHERE Isbn = ? AND LibraryID = ?";
+        String query = "UPDATE Book SET Title = ?, Author = ?, IsAvailable = ?, LibraryID = ? WHERE Isbn = ?";
         try (Connection connection = DatabaseUtil.getInstance().getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
-            setBookParameters(book, statement);
+            // Call setBookParameters with parameters for UPDATE query
+            statement.setString(1, book.getTitle());
+            statement.setString(2, book.getAuthor());
+            statement.setBoolean(3, book.isAvailable());
+            statement.setInt(4, book.getLibraryID());
+            statement.setString(5, book.getIsbn()); // Set the WHERE clause parameter
+            statement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace(); // Handle exceptions appropriately (e.g., logging)
+            e.printStackTrace();
         }
     }
 

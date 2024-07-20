@@ -2,46 +2,87 @@ package org.example.lms.model;
 
 import java.util.Objects;
 
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.IntegerProperty;
+
 public class Book {
-    private String Isbn;
-    private String Title;
-    private String Author;
-    private boolean IsAvailable;
-    private Integer  LibraryID;
+    private final StringProperty isbn;
+    private final StringProperty title;
+    private final StringProperty author;
+    private final BooleanProperty isAvailable;
+    private final IntegerProperty libraryID;
 
-    public Book(String Isbn, String Title, String Author, boolean IsAvailable, Integer LibraryID) {
-        this.Isbn = Isbn;
-        this.Title = Title;
-        this.Author = Author;
-        this.IsAvailable = IsAvailable;
-        this.LibraryID = LibraryID;
+    public Book(String isbn, String title, String author, boolean isAvailable, int libraryID) {
+        this.isbn = new SimpleStringProperty(isbn);
+        this.title = new SimpleStringProperty(title);
+        this.author = new SimpleStringProperty(author);
+        this.isAvailable = new SimpleBooleanProperty(isAvailable);
+        this.libraryID = new SimpleIntegerProperty(libraryID);
     }
 
-    // Getters and setters
-    public String getIsbn() { return Isbn; }
-    public String getTitle() { return Title; }
-    public void setTitle(String Title) { this.Title = Title; }
-    public String getAuthor() { return Author; }
-    public void setAuthor(String Author) { this.Author = Author; }
-    public boolean isAvailable() { return IsAvailable; }
-    public void setAvailable(boolean available) { IsAvailable = available; }
-    public int getLibraryId() { return LibraryID; }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Book book = (Book) o;
-        return IsAvailable == book.IsAvailable &&
-                Objects.equals(Isbn, book.Isbn) &&
-                Objects.equals(Title, book.Title) &&
-                Objects.equals(Author, book.Author) &&
-                Objects.equals(LibraryID, book.LibraryID);
+    // Getters for JavaFX properties
+    public StringProperty isbnProperty() {
+        return isbn;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(Isbn, Title, Author, IsAvailable, LibraryID);
+    public StringProperty titleProperty() {
+        return title;
     }
 
+    public StringProperty authorProperty() {
+        return author;
+    }
+
+    public BooleanProperty isAvailableProperty() {
+        return isAvailable;
+    }
+
+    public IntegerProperty libraryIDProperty() {
+        return libraryID;
+    }
+
+    // Getters for database operations
+    public String getIsbn() {
+        return isbn.get();
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn.set(isbn);
+    }
+
+    public String getTitle() {
+        return title.get();
+    }
+
+    public void setTitle(String title) {
+        this.title.set(title);
+    }
+
+    public String getAuthor() {
+        return author.get();
+    }
+
+    public void setAuthor(String author) {
+        this.author.set(author);
+    }
+
+    public boolean isAvailable() {
+        return isAvailable.get();
+    }
+
+    public void setAvailable(boolean isAvailable) {
+        this.isAvailable.set(isAvailable);
+    }
+
+    public int getLibraryID() {
+        return libraryID.get();
+    }
+
+    public void setLibraryID(int libraryID) {
+        this.libraryID.set(libraryID);
+    }
 }

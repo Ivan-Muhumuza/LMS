@@ -2,6 +2,12 @@ package org.example.lms.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import org.example.lms.controller.book.AddBookController;
+import org.example.lms.controller.book.ManageBookController;
 import org.example.lms.model.Book;
 import org.example.lms.model.Librarian;
 import org.example.lms.service.BookService;
@@ -16,13 +22,17 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.util.List;
 
 public class LibrarianDashboardController {
-    @FXML
-    private Button addBookButton;
+
     @FXML
     private Button manageTransactionsButton;
+    @FXML
+    private Button managePatronsButton;
+    @FXML
+    private Button manageBooksButton;
     @FXML
     private TableView<Book> booksTableView;
     @FXML
@@ -36,53 +46,101 @@ public class LibrarianDashboardController {
 
     private BookService bookService;
 
-    public LibrarianDashboardController(BookService bookService, TransactionService transactionService) {
+    private TransactionService transactionService;
+
+    // Setters for dependency injection
+    public void setBookService(BookService bookService) {
         this.bookService = bookService;
+        populateBooksTable();
     }
 
-    public void setLibrarian(Librarian librarian) {
-        populateBooksTable();
+    public void setTransactionService(TransactionService transactionService) {
+        this.transactionService = transactionService;
     }
 
     @FXML
     private void initialize() {
+        // Initialize table columns
         isbnColumn.setCellValueFactory(new PropertyValueFactory<>("isbn"));
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         authorColumn.setCellValueFactory(new PropertyValueFactory<>("author"));
 
-        addBookButton.setOnAction(e -> handleAddBook());
+        // Set button actions
         manageTransactionsButton.setOnAction(e -> handleManageTransactions());
+        managePatronsButton.setOnAction(e -> handleManagePatrons());
+        manageBooksButton.setOnAction(e -> handleManageBooks());
+
+        // Add search field listener
         searchField.textProperty().addListener((observable, oldValue, newValue) -> handleSearch(newValue));
+
+        // Populate books table when the controller is initialized
+        populateBooksTable();
     }
 
     private void populateBooksTable() {
-        booksTableView.setItems(bookService.getAllBooks());
+        if (bookService != null) {
+            ObservableList<Book> books = bookService.getAllBooks();
+            booksTableView.setItems(books);
+        }
+//        else {
+//            showAlert(Alert.AlertType.WARNING, "No Data", "Book service is not initialized.");
+//        }
     }
 
-    private void handleAddBook() {
-        // Code to add a new book
-        showAlert(AlertType.INFORMATION, "Add Book", "Add book functionality is not implemented yet.");
+
+    @FXML
+    private void handleManagePatrons() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/lms/patron/manage_patron.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage primaryStage = (Stage) managePatronsButton.getScene().getWindow();
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("Manage Patrons");
+        } catch (IOException e) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Could not open the manage patrons page.");
+            e.printStackTrace();
+        }
     }
 
+
+    @FXML
+    private void handleManageBooks() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/lms/book/manage_book.fxml"));
+            Parent root = loader.load();
+
+            ManageBookController controller = loader.getController();
+            controller.setBookService(bookService);
+
+            // Switch to the manage books scene
+            Stage stage = (Stage) manageBooksButton.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Manage Books");
+
+        } catch (IOException e) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Could not open the manage book scene.");
+            e.printStackTrace();
+        }
+    }
+
+
+    @FXML
     private void handleManageTransactions() {
-        // Code to manage transactions
-        showAlert(AlertType.INFORMATION, "Manage Transactions", "Manage transactions functionality is not implemented yet.");
+        showAlert(Alert.AlertType.INFORMATION, "Manage Transactions", "Manage transactions functionality is not implemented yet.");
     }
 
     private void handleSearch(String query) {
-        // Convert List to ObservableList
-        List<Book> bookList = bookService.searchBooks(query);
-        ObservableList<Book> observableBookList = FXCollections.observableArrayList(bookList);
-
-        // Set items to the TableView
-        booksTableView.setItems(observableBookList);
+        if (bookService != null) {
+            List<Book> filteredBooks = bookService.searchBooks(query);
+            booksTableView.setItems(FXCollections.observableArrayList(filteredBooks));
+        }
     }
 
-    private void showAlert(AlertType alertType, String title, String message) {
+    private void showAlert(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
         alert.setContentText(message);
         alert.showAndWait();
     }
 }
-

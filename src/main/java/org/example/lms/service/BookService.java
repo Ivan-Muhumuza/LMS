@@ -72,8 +72,8 @@ public class BookService {
     }
 
     public ObservableList<Book> getAllBooks() {
-        // Fetch all books
-        return (ObservableList<Book>) bookRepository.getAllBooks();
+        List<Book> books = bookRepository.getAllBooks();
+        return FXCollections.observableArrayList(books);
     }
 
     public ObservableList<Book> getAvailableBooks() {

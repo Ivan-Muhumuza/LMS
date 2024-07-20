@@ -17,7 +17,7 @@ public class LibraryRepository {
             statement.setString(2, book.getTitle());
             statement.setString(3, book.getAuthor());
             statement.setBoolean(4, book.isAvailable());
-            statement.setInt(5, book.getLibraryId());
+            statement.setInt(5, book.getLibraryID());
             statement.executeUpdate();
         }
     }
@@ -77,8 +77,7 @@ public class LibraryRepository {
             while (resultSet.next()) {
                 patrons.add(new Patron(resultSet.getInt("PatronID"),
                         resultSet.getString("Name"),
-                        resultSet.getString("Email"),
-                        resultSet.getString("Password")));
+                        resultSet.getString("Email")));
 
             }
         }

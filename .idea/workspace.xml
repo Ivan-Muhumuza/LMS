@@ -5,24 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26363f89-0b20-4392-9063-57e2eb66d29c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/util/DatabaseUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/library_schema.md" beforeDir="false" afterPath="$PROJECT_DIR$/library_schema.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/LMSApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/LMSApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/LMSController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/BorrowedBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/model/BorrowedBook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/DatabaseUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/Librarian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Librarian.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Library.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/Patron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Patron.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/views/TransactionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/model/TransactionType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/lms/home-view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/views/DatabaseUtilTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/model/DatabaseUtilTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/LibrarianDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/LibrarianDashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Patron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Patron.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/LibrarianRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/LibrarianRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/LibraryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/LibraryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/PatronRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/PatronRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/service/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/service/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/service/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/util/DatabaseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/util/DatabaseUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/util/db.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/lms/librarian_dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/lms/librarian_dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/lms/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/lms/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/lms/patron_dashboard.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +34,8 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -241,7 +241,7 @@
       <option name="presentableId" value="Default" />
       <updated>1719047337175</updated>
       <workItem from="1720779777930" duration="4006000" />
-      <workItem from="1721227671059" duration="23326000" />
+      <workItem from="1721227671059" duration="54216000" />
     </task>
     <servers />
   </component>

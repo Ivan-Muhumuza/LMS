@@ -16,16 +16,15 @@ CREATE TABLE Book (
 __-- Patron table: stores information about patrons__
 ```sql
 CREATE TABLE Patron (
-    PatronID INT PRIMARY KEY,
+    PatronID BIGINT PRIMARY KEY,
     Name VARCHAR(255),
-    Password VARCHAR(255),
     Email VARCHAR(255) UNIQUE NOT NULL
 );
 ```
 __-- BorrowedBooks table: tracks borrowed books and their due dates__
 ```sql
 CREATE TABLE BorrowedBooks (
-    PatronID INT,
+    PatronID BIGINT,
     Isbn VARCHAR(225),
     BorrowedDate DATETIME,
     DueDate DATETIME,
@@ -39,7 +38,7 @@ __-- Transaction table: stores information about transactions__
 ```sql
 CREATE TABLE Transaction (
     TransactionID INT PRIMARY KEY,
-    PatronID INT,
+    PatronID BIGINT,
     BookIsbn VARCHAR(225),
     TransactionDate DATETIME,
     DueDate DATETIME,

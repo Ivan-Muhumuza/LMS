@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<BorderPane prefHeight="291.0" prefWidth="303.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="org.example.lms.controller.book.EditBookController">
+    <bottom>
+        <VBox alignment="CENTER" prefHeight="292.0" prefWidth="348.0" spacing="10" BorderPane.alignment="CENTER">
+            <TextField fx:id="titleField" promptText="Title">
+                <VBox.margin>
+                    <Insets bottom="10.0" />
+                </VBox.margin>
+            </TextField>
+            <TextField fx:id="authorField" promptText="Author">
+                <VBox.margin>
+                    <Insets bottom="10.0" />
+                </VBox.margin>
+            </TextField>
+            <TextField fx:id="isbnField" promptText="ISBN" editable="false">
+                <VBox.margin>
+                    <Insets bottom="10.0" />
+                </VBox.margin>
+            </TextField>
+            <Button onAction="#handleEditBook" text="Save Changes" />
+            <padding>
+                <Insets left="18.0" right="18.0" />
+            </padding>
+        </VBox>
+    </bottom>
+</BorderPane>

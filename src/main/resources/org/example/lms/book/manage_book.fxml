@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="680.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.lms.controller.book.ManageBookController">
+    <VBox alignment="CENTER" spacing="10">
+        <HBox alignment="CENTER" spacing="10" />
+    </VBox>
+    <TextField fx:id="searchBookField" layoutX="36.0" layoutY="79.0" prefHeight="37.0" prefWidth="580.0" promptText="Search Books">
+        <VBox.margin>
+            <Insets bottom="10.0" />
+        </VBox.margin>
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+        </padding>
+    </TextField>
+    <TableView fx:id="booksTableView" layoutX="36.0" layoutY="134.0" prefHeight="515.0" prefWidth="580.0">
+        <columns>
+            <TableColumn fx:id="isbnColumn" prefWidth="173.0" text="ISBN" />
+            <TableColumn fx:id="titleColumn" prefWidth="238.0" text="Title" />
+            <TableColumn fx:id="authorColumn" prefWidth="168.0" text="Author" />
+        </columns>
+    </TableView>
+    <Button layoutX="167.0" layoutY="33.0" onAction="#handleEditBook"  fx:id="editBookButton" text="Edit Book" />
+    <Button layoutX="268.0" layoutY="33.0" onAction="#handleDeleteBook" fx:id="deleteBookButton" text="Delete Book" />
+    <Button layoutX="61.0" layoutY="33.0" onAction="#handleAddBook" fx:id="addBookButton" text="Add Book" />
+    <Button fx:id="backToDashboardButton" layoutX="495.0" layoutY="33.0" onAction="#handleBackToDashboard" text="Back to Dashboard" />
+
+</AnchorPane>

@@ -12,17 +12,25 @@ import java.sql.SQLException;
 
 public class LibrarianRepository {
 
-    private Connection connection;
-
-    public LibrarianRepository() throws SQLException {
-        this.connection = DatabaseUtil.getInstance().getConnection();
-    }
-
-    private void setLibrarianParameters(PreparedStatement statement, Librarian librarian) throws SQLException {
-        statement.setInt(1, librarian.getLibrarianID());
-        statement.setInt(2, librarian.getLibraryID());
-        statement.setString(3, librarian.getName());
-        statement.setString(4, librarian.getEmail());
+    public Librarian getLibrarianByEmail(String email) {
+        String query = "SELECT * FROM Librarian WHERE Email = ?";
+        try (Connection connection = DatabaseUtil.getInstance().getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, email);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return new Librarian(
+                        resultSet.getInt("LibrarianID"),
+                        resultSet.getInt("LibraryID"),
+                        resultSet.getString("Name"),
+                        resultSet.getString("Email"),
+                        resultSet.getString("Password")
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public void addLibrarianToDatabase(Librarian librarian) {
@@ -32,7 +40,7 @@ public class LibrarianRepository {
             setLibrarianParameters(statement, librarian);
             statement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace(); // Handle exceptions appropriately
+            e.printStackTrace();
         }
     }
 
@@ -43,7 +51,7 @@ public class LibrarianRepository {
             setLibrarianParameters(statement, librarian);
             statement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace(); // Handle exceptions appropriately
+            e.printStackTrace();
         }
     }
 
@@ -54,7 +62,7 @@ public class LibrarianRepository {
             statement.setInt(1, librarianID);
             statement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace(); // Handle exceptions appropriately
+            e.printStackTrace();
         }
     }
 
@@ -74,31 +82,15 @@ public class LibrarianRepository {
                 );
             }
         } catch (SQLException e) {
-            e.printStackTrace(); // Handle exceptions appropriately
+            e.printStackTrace();
         }
         return null;
     }
 
-    public Librarian getLibrarianByEmail(String email) {
-        String query = "SELECT * FROM Librarian WHERE Email = ?";
-        try (Connection connection = DatabaseUtil.getInstance().getConnection();
-             PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, email);
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                return new Librarian(
-                        resultSet.getInt("LibrarianID"),
-                        resultSet.getInt("LibraryID"),
-                        resultSet.getString("Name"),
-                        resultSet.getString("Email"),
-                        resultSet.getString("Password")
-                );
-            }
-        } catch (SQLException e) {
-            e.printStackTrace(); // Handle exceptions appropriately
-        }
-        return null;
+    private void setLibrarianParameters(PreparedStatement statement, Librarian librarian) throws SQLException {
+        statement.setInt(1, librarian.getLibrarianID());
+        statement.setInt(2, librarian.getLibraryID());
+        statement.setString(3, librarian.getName());
+        statement.setString(4, librarian.getEmail());
     }
-
-
 }

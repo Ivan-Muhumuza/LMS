@@ -4,14 +4,17 @@ module org.example.lms {
     requires java.sql;
     requires org.apache.commons.dbcp2;
     requires jbcrypt;
+    requires mysql.connector.j;
 
-    opens org.example.lms.controller to javafx.fxml;
+
     exports org.example.lms;
-
-    opens org.example.lms.model to javafx.fxml;
-
-
     exports org.example.lms.model;
     exports org.example.lms.util;
+    exports org.example.lms.controller.book;
+    exports org.example.lms.controller;
+
+    opens org.example.lms.controller to javafx.fxml;
+    opens org.example.lms.model to javafx.fxml;
+    opens org.example.lms.controller.book to javafx.fxml;
     opens org.example.lms.util to javafx.fxml;
 }
