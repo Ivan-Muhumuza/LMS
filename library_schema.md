@@ -18,6 +18,7 @@ __-- Patron table: stores information about patrons__
 CREATE TABLE Patron (
     PatronID INT PRIMARY KEY,
     Name VARCHAR(255),
+    Password VARCHAR(255),
     Email VARCHAR(255) UNIQUE NOT NULL
 );
 ```
@@ -64,6 +65,7 @@ CREATE TABLE Librarian (
     LibraryID INT,
     Name VARCHAR(255),
     Email VARCHAR(255) UNIQUE NOT NULL,
+    Password VARCHAR(255),
     FOREIGN KEY (LibraryID) REFERENCES Library(LibraryID)
 );
 ```

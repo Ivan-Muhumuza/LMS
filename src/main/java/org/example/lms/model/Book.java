@@ -1,4 +1,4 @@
-package views;
+package org.example.lms.model;
 
 import java.util.Objects;
 

@@ -1,4 +1,4 @@
-package views;
+package org.example.lms.model;
 
 public class TransactionType {
     private int TypeID;
