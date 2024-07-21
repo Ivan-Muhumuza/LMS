@@ -5,18 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26363f89-0b20-4392-9063-57e2eb66d29c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/lms/repository/BookRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/LibrarianDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/LibrarianDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/PatronDashboardController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/book/ManageBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/book/ManageBookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/transaction/BorrowBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/transaction/BorrowBookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/transaction/ManageTransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/transaction/ManageTransactionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/BorrowedBookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/BorrowedBookRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/service/BorrowedBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/service/BorrowedBookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/util/DatabaseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/util/DatabaseUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/lms/transaction/borrow_book.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/lms/transaction/manage_transaction.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/lms/transaction/manage_transaction.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/PatronRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/PatronRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/lms/repository/BookRepositoryIntegrationTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +21,8 @@
       <list>
         <option value="Interface" />
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -82,6 +75,16 @@
     "JUnit.BookRepositoryTest.executor": "Run",
     "JUnit.BookRepositoryTest.testAddBookToDatabase (1).executor": "Run",
     "JUnit.BookRepositoryTest.testAddBookToDatabase.executor": "Run",
+    "JUnit.BookServiceTest.executor": "Run",
+    "JUnit.BookServiceTest.testAddBook.executor": "Run",
+    "JUnit.BookServiceTest.testAddBook_Success.executor": "Run",
+    "JUnit.BookServiceTest.testDeleteBook.executor": "Run",
+    "JUnit.BookServiceTest.testGetAllBooks.executor": "Run",
+    "JUnit.BookServiceTest.testGetBook.executor": "Run",
+    "JUnit.BookServiceTest.testUpdateBook_Success.executor": "Run",
+    "JUnit.BorrowedBookRepositoryTest.executor": "Run",
+    "JUnit.BorrowedBookServiceTest.executor": "Run",
+    "JUnit.BorrowedBookServiceTest.getAllBorrowedBooksTest.executor": "Run",
     "JUnit.DatabaseUtilTest.testAddBookToDatabase.executor": "Run",
     "JUnit.DatabaseUtilTest.testAddBorrowedBookToDatabase.executor": "Run",
     "JUnit.DatabaseUtilTest.testAddLibrarianToDatabase.executor": "Run",
@@ -100,6 +103,11 @@
     "JUnit.DatabaseUtilTest.testUpdateLibrarianInDatabase.executor": "Run",
     "JUnit.DatabaseUtilTest.testUpdatePatronInDatabase.executor": "Run",
     "JUnit.DatabaseUtilTest.testUpdateTransactionInDatabase.executor": "Run",
+    "JUnit.LibrarianRepositoryTest.executor": "Run",
+    "JUnit.PatronRepositoryTest.executor": "Run",
+    "JUnit.PatronServiceTest.executor": "Run",
+    "Maven.LMS [clean].executor": "Run",
+    "Maven.LMS [test].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -135,74 +143,12 @@
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="org.example.lms.repository" />
+      <recent name="org.example.lms.service" />
       <recent name="views" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BookRepositoryIntegrationTest.testFindAvailableBooks">
-    <configuration name="BookRepositoryIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="LMS" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.lms.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example.lms.repository" />
-      <option name="MAIN_CLASS_NAME" value="org.example.lms.repository.BookRepositoryIntegrationTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BookRepositoryIntegrationTest.testAddBookToDatabase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="LMS" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.lms.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example.lms.repository" />
-      <option name="MAIN_CLASS_NAME" value="org.example.lms.repository.BookRepositoryIntegrationTest" />
-      <option name="METHOD_NAME" value="testAddBookToDatabase" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BookRepositoryIntegrationTest.testFindAvailableBooks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="LMS" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.lms.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example.lms.repository" />
-      <option name="MAIN_CLASS_NAME" value="org.example.lms.repository.BookRepositoryIntegrationTest" />
-      <option name="METHOD_NAME" value="testFindAvailableBooks" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BookRepositoryIntegrationTest.testGetAllBooks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="LMS" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.lms.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example.lms.repository" />
-      <option name="MAIN_CLASS_NAME" value="org.example.lms.repository.BookRepositoryIntegrationTest" />
-      <option name="METHOD_NAME" value="testGetAllBooks" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BookRepositoryTest.testAddBookToDatabase (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.BorrowedBookRepositoryTest">
+    <configuration name="BookRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LMS" />
       <extension name="coverage">
         <pattern>
@@ -212,19 +158,78 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example.lms.repository" />
       <option name="MAIN_CLASS_NAME" value="org.example.lms.repository.BookRepositoryTest" />
-      <option name="METHOD_NAME" value="testAddBookToDatabase" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BookServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LMS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.lms.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.lms.service" />
+      <option name="MAIN_CLASS_NAME" value="org.example.lms.service.BookServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BorrowedBookRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LMS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.lms.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.lms.repository" />
+      <option name="MAIN_CLASS_NAME" value="org.example.lms.repository.BorrowedBookRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BorrowedBookServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LMS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.lms.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.lms.service" />
+      <option name="MAIN_CLASS_NAME" value="org.example.lms.service.BorrowedBookServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PatronRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LMS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.lms.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.lms.repository" />
+      <option name="MAIN_CLASS_NAME" value="org.example.lms.repository.PatronRepositoryTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BookRepositoryIntegrationTest.testFindAvailableBooks" />
-        <item itemvalue="JUnit.BookRepositoryIntegrationTest.testGetAllBooks" />
-        <item itemvalue="JUnit.BookRepositoryIntegrationTest.testAddBookToDatabase" />
-        <item itemvalue="JUnit.BookRepositoryIntegrationTest" />
-        <item itemvalue="JUnit.BookRepositoryTest.testAddBookToDatabase (1)" />
+        <item itemvalue="JUnit.BorrowedBookRepositoryTest" />
+        <item itemvalue="JUnit.BookRepositoryTest" />
+        <item itemvalue="JUnit.BorrowedBookServiceTest" />
+        <item itemvalue="JUnit.BookServiceTest" />
+        <item itemvalue="JUnit.PatronRepositoryTest" />
       </list>
     </recent_temporary>
   </component>
@@ -248,7 +253,8 @@
       <workItem from="1721227671059" duration="59756000" />
       <workItem from="1721543607303" duration="229000" />
       <workItem from="1721543852736" duration="18213000" />
-      <workItem from="1721567837229" duration="17402000" />
+      <workItem from="1721567837229" duration="21210000" />
+      <workItem from="1721597830791" duration="5901000" />
     </task>
     <servers />
   </component>

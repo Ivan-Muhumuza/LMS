@@ -13,17 +13,6 @@ import java.util.List;
 
 public class PatronRepository {
 
-//    public void addPatron(Patron patron) {
-//        String query = "INSERT INTO Patron (Name, Email) VALUES (?, ?)";
-//        try (Connection connection = DatabaseUtil.getInstance().getConnection();
-//             PreparedStatement statement = connection.prepareStatement(query)) {
-//            statement.setString(1, patron.getName());
-//            statement.setString(2, patron.getEmail());
-//            statement.executeUpdate();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     public void addPatron(Patron patron) {
         String query = "INSERT INTO Patron (PatronID, Name, Email) VALUES (?, ?, ?)";
