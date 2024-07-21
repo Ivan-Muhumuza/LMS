@@ -1,65 +1,37 @@
 package org.example.lms.service;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import org.example.lms.model.Book;
 import org.example.lms.model.Patron;
 import org.example.lms.repository.PatronRepository;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class PatronService {
 
     private final PatronRepository patronRepository;
 
-    public PatronService() throws SQLException {
+    public PatronService() {
         this.patronRepository = new PatronRepository();
     }
 
-    public void addPatron(Patron patron) throws SQLException {
-        validatePatron(patron);
-        if (patronExists(patron.getPatronID())) {
-            throw new IllegalArgumentException("Patron with this ID already exists.");
-        }
-        patronRepository.addPatronToDatabase(patron);
+    public void addPatron(Patron patron) {
+        patronRepository.addPatron(patron);
     }
 
-    public void updatePatron(Patron patron) throws SQLException {
-        validatePatron(patron);
-        if (!patronExists(patron.getPatronID())) {
-            throw new IllegalArgumentException("Patron not found for update.");
-        }
-        patronRepository.updatePatronInDatabase(patron);
+    public void updatePatron(Patron patron) {
+        patronRepository.updatePatron(patron);
     }
 
-    public void deletePatron(int patronID) throws SQLException {
-        if (!patronExists(patronID)) {
-            throw new IllegalArgumentException("Patron not found for deletion.");
-        }
-        patronRepository.deletePatronFromDatabase(patronID);
+    public void deletePatron(long patronID) {
+        patronRepository.deletePatron(patronID);
     }
 
-    public Patron getPatron(int patronID) throws SQLException {
-        Patron patron = patronRepository.getPatronFromDatabase(patronID);
-        if (patron == null) {
-            throw new IllegalArgumentException("Patron not found.");
-        }
-        return patron;
-    }
-
-    private void validatePatron(Patron patron) {
-        if (patron.getPatronID() <= 0) {
-            throw new IllegalArgumentException("Patron ID must be positive.");
-        }
-        if (patron.getName() == null || patron.getName().isEmpty()) {
-            throw new IllegalArgumentException("Patron name cannot be null or empty.");
-        }
-        if (patron.getEmail() == null || patron.getEmail().isEmpty()) {
-            throw new IllegalArgumentException("Patron email cannot be null or empty.");
-        }
-        // Additional email format validation can be added here
-    }
-
-    private boolean patronExists(int patronID) throws SQLException {
-        Patron patron = patronRepository.getPatronFromDatabase(patronID);
-        return patron != null;
+    public ObservableList<Patron> getAllPatrons() {
+        List<Patron> patrons = patronRepository.getAllPatrons();
+        return FXCollections.observableArrayList(patrons);
     }
 }
 

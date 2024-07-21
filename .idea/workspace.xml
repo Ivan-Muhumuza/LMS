@@ -9,20 +9,18 @@
       <change beforePath="$PROJECT_DIR$/library_schema.md" beforeDir="false" afterPath="$PROJECT_DIR$/library_schema.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/LibrarianDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/LibrarianDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/book/ManageBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/book/ManageBookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/patron/AddPatronController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/patron/AddPatronController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/patron/ManagePatronController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/patron/ManagePatronController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Library.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Patron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Patron.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/BookRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/LibrarianRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/LibrarianRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/LibraryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/LibraryRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/PatronRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/PatronRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/service/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/service/AuthenticationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/service/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/util/DatabaseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/util/DatabaseUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/util/db.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/lms/librarian_dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/lms/librarian_dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/lms/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/lms/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/lms/patron_dashboard.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/service/LibraryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/service/LibraryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/service/PatronService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/service/PatronService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/util/PatronIDGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/util/PatronIDGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/lms/patron/add_patron_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/lms/patron/add_patron_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/lms/patron/manage_patron.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/lms/patron/manage_patron.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,51 +73,51 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.DatabaseUtilTest.executor": "Run",
-    "Application.DatabaseUtilTestss.executor": "Run",
-    "Application.HelloApplication.executor": "Run",
-    "Application.LMSApplication.executor": "Run",
-    "JUnit.DatabaseUtilTest.testAddBookToDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testAddBorrowedBookToDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testAddLibrarianToDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testAddPatronToDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testAddTransactionToDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testDeleteBookFromDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testDeleteBorrowedBookFromDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testDeleteLibrarianFromDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testDeletePatronFromDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testGetBookFromDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testGetBorrowedBookFromDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testGetLibrarianFromDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testGetPatronFromDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testUpdateBookInDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testUpdateBorrowedBookInDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testUpdateLibrarianInDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testUpdatePatronInDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testUpdateTransactionInDatabase.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "muhumuza",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/macbookpro/Desktop/LMS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.3908046",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.DatabaseUtilTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.DatabaseUtilTestss.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LMSApplication.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testAddBookToDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testAddBorrowedBookToDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testAddLibrarianToDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testAddPatronToDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testAddTransactionToDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testDeleteBookFromDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testDeleteBorrowedBookFromDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testDeleteLibrarianFromDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testDeletePatronFromDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testGetBookFromDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testGetBorrowedBookFromDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testGetLibrarianFromDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testGetPatronFromDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testUpdateBookInDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testUpdateBorrowedBookInDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testUpdateLibrarianInDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testUpdatePatronInDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testUpdateTransactionInDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;muhumuza&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/macbookpro/Desktop/LMS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.3908046&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/org/example/lms" />
@@ -241,7 +239,9 @@
       <option name="presentableId" value="Default" />
       <updated>1719047337175</updated>
       <workItem from="1720779777930" duration="4006000" />
-      <workItem from="1721227671059" duration="54216000" />
+      <workItem from="1721227671059" duration="59756000" />
+      <workItem from="1721543607303" duration="229000" />
+      <workItem from="1721543852736" duration="6320000" />
     </task>
     <servers />
   </component>

@@ -10,7 +10,9 @@ import org.example.lms.controller.book.AddBookController;
 import org.example.lms.controller.book.ManageBookController;
 import org.example.lms.model.Book;
 import org.example.lms.model.Librarian;
+import org.example.lms.model.Patron;
 import org.example.lms.service.BookService;
+import org.example.lms.service.PatronService;
 import org.example.lms.service.TransactionService;
 
 import javafx.fxml.FXML;
@@ -36,6 +38,8 @@ public class LibrarianDashboardController {
     @FXML
     private TableView<Book> booksTableView;
     @FXML
+    private TableView<Patron> patronsTableView;
+    @FXML
     private TableColumn<Book, String> isbnColumn;
     @FXML
     private TableColumn<Book, String> titleColumn;
@@ -46,12 +50,19 @@ public class LibrarianDashboardController {
 
     private BookService bookService;
 
+    private PatronService patronService;
+
     private TransactionService transactionService;
 
     // Setters for dependency injection
     public void setBookService(BookService bookService) {
         this.bookService = bookService;
         populateBooksTable();
+    }
+
+    public void setPatronService(PatronService patronService) {
+        this.patronService = patronService;
+        populatePatronsTable();
     }
 
     public void setTransactionService(TransactionService transactionService) {
@@ -82,11 +93,16 @@ public class LibrarianDashboardController {
             ObservableList<Book> books = bookService.getAllBooks();
             booksTableView.setItems(books);
         }
-//        else {
-//            showAlert(Alert.AlertType.WARNING, "No Data", "Book service is not initialized.");
-//        }
     }
 
+    private void populatePatronsTable() {
+        if (patronsTableView != null) {
+            // Fetch and set items to the TableView
+            patronsTableView.setItems(FXCollections.observableArrayList(patronService.getAllPatrons()));
+        } else {
+            System.err.println("patronsTableView is null");
+        }
+    }
 
     @FXML
     private void handleManagePatrons() {

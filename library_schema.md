@@ -37,7 +37,7 @@ CREATE TABLE BorrowedBooks (
 __-- Transaction table: stores information about transactions__
 ```sql
 CREATE TABLE Transaction (
-    TransactionID INT PRIMARY KEY,
+    TransactionID INT PRIMARY KEY AUTO_INCREMENT,
     PatronID BIGINT,
     BookIsbn VARCHAR(225),
     TransactionDate DATETIME,
@@ -52,7 +52,7 @@ CREATE TABLE Transaction (
 __-- Library table: stores information about libraries__
 ```sql
 CREATE TABLE Library (
-    LibraryID INT PRIMARY KEY,
+    LibraryID INT PRIMARY KEY AUTO_INCREMENT,
     Name VARCHAR(255) NOT NULL
 );
 ```
@@ -60,7 +60,7 @@ CREATE TABLE Library (
 __-- Librarian table: stores information about librarians__
 ```sql
 CREATE TABLE Librarian (
-    LibrarianID INT PRIMARY KEY,
+    LibrarianID INT PRIMARY KEY AUTO_INCREMENT,
     LibraryID INT,
     Name VARCHAR(255),
     Email VARCHAR(255) UNIQUE NOT NULL,

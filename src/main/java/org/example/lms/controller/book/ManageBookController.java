@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 import org.example.lms.controller.LibrarianDashboardController;
 import org.example.lms.model.Book;
 import org.example.lms.service.BookService;
+import org.example.lms.service.PatronService;
+
 import java.util.List;
 
 import java.io.IOException;
@@ -25,6 +27,7 @@ public class ManageBookController {
     private TextField searchBookField;
 
     private BookService bookService;
+    private PatronService patronService;
 
     @FXML
     private TableView<Book> booksTableView;
