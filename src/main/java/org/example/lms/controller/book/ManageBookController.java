@@ -26,11 +26,11 @@ public class ManageBookController {
     @FXML
     private TextField searchBookField;
 
-    private BookService bookService;
+    private static BookService bookService;
     private PatronService patronService;
 
     @FXML
-    private TableView<Book> booksTableView;
+    private static TableView<Book> booksTableView;
 
     @FXML
     private TableColumn<Book, String> isbnColumn;
@@ -70,7 +70,7 @@ public class ManageBookController {
         populateBooksTable();
     }
 
-    private void populateBooksTable() {
+    public static void populateBooksTable() {
         if (bookService != null) {
             booksTableView.setItems(bookService.getAllBooks());
         }

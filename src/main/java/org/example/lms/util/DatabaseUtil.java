@@ -19,7 +19,7 @@ public class DatabaseUtil {
         MysqlDataSource mysqlDS = new MysqlDataSource();
         mysqlDS.setURL("jdbc:mysql://localhost:3306/library_schema");
         mysqlDS.setUser("root");
-        mysqlDS.setPassword("password123");
+        mysqlDS.setPassword("Pioneer4!");
         this.dataSource = mysqlDS;
     }
 

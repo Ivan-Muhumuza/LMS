@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -8,21 +9,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="680.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.lms.controller.transaction.ManageTransactionController">
-    <TextField fx:id="patronIDField" layoutX="33.0" layoutY="139.0" prefHeight="26.0" prefWidth="128.0" promptText="Patron ID" />
-    <TextField fx:id="isbnField" layoutX="188.0" layoutY="139.0" prefHeight="26.0" prefWidth="159.0" promptText="ISBN" />
-    <DatePicker fx:id="dueDatePicker" layoutX="367.0" layoutY="139.0" prefHeight="26.0" prefWidth="137.0" />
-    <Button fx:id="borrowBookButton" layoutX="524.0" layoutY="139.0" onAction="#handleBorrowBook" text="Borrow Book" />
-    <Button fx:id="returnBookButton" layoutX="387.0" layoutY="382.0" onAction="#handleReturnBook" prefHeight="26.0" prefWidth="137.0" text="Return Book" />
-    <Button fx:id="viewBorrowedBooksButton" layoutX="131.0" layoutY="382.0" onAction="#handleViewBorrowedBooks" text="View Borrowed Books" />
-   <Label alignment="CENTER" layoutX="172.0" layoutY="57.0" prefHeight="38.0" prefWidth="307.0" text="Borrow Book" textAlignment="CENTER">
+<AnchorPane id="patronIDComboBox" prefHeight="680.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.lms.controller.transaction.ManageTransactionController">
+    <ComboBox fx:id="patronIDComboBox" layoutX="24.0" layoutY="159.0" prefHeight="26.0" prefWidth="137.0" />
+<!--    <TextField fx:id="searchPatronField" promptText="Search Patron ID"/>-->
+    <TextField fx:id="isbnField" layoutX="188.0" layoutY="159.0" prefHeight="26.0" prefWidth="159.0" promptText="ISBN" />
+    <DatePicker fx:id="dueDatePicker" layoutX="365.0" layoutY="159.0" prefHeight="26.0" prefWidth="137.0" />
+    <Button fx:id="backToDashboardButton" layoutX="488.0" layoutY="49.0" onAction="#handleBackToDashboard" prefHeight="26.0" prefWidth="123.0" text="Back to Dashboard" />
+    <Button fx:id="borrowBookButton" layoutX="524.0" layoutY="159.0" onAction="#handleBorrowBook" text="Borrow Book" />
+    <Button fx:id="returnBookButton" layoutX="387.0" layoutY="388.0" onAction="#handleReturnBook" prefHeight="26.0" prefWidth="137.0" text="Return Book" />
+    <Button fx:id="viewBorrowedBooksButton" layoutX="131.0" layoutY="388.0" onAction="#handleViewBorrowedBooks" text="View Borrowed Books" />
+   <Label alignment="CENTER" layoutX="172.0" layoutY="84.0" prefHeight="38.0" prefWidth="307.0" text="Borrow Book" textAlignment="CENTER">
       <font>
          <Font size="15.0" />
       </font>
    </Label>
    <Separator layoutX="8.0" layoutY="249.0" prefHeight="6.0" prefWidth="635.0" />
    <Separator layoutX="9.0" layoutY="268.0" prefHeight="6.0" prefWidth="635.0" />
-   <Label alignment="CENTER" layoutX="161.0" layoutY="291.0" prefHeight="38.0" prefWidth="307.0" text="Other actions" textAlignment="CENTER">
+   <Label alignment="CENTER" layoutX="161.0" layoutY="308.0" prefHeight="38.0" prefWidth="307.0" text="Other actions" textAlignment="CENTER">
       <font>
          <Font size="15.0" />
       </font>

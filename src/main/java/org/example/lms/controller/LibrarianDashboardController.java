@@ -12,6 +12,8 @@ import org.example.lms.controller.transaction.ManageTransactionController;
 import org.example.lms.model.Book;
 import org.example.lms.model.Librarian;
 import org.example.lms.model.Patron;
+import org.example.lms.repository.BookRepository;
+import org.example.lms.repository.PatronRepository;
 import org.example.lms.service.BookService;
 import org.example.lms.service.BorrowedBookService;
 import org.example.lms.service.PatronService;
@@ -49,6 +51,10 @@ public class LibrarianDashboardController {
     private TableColumn<Book, String> authorColumn;
     @FXML
     private TextField searchField;
+
+    private PatronRepository patronRepository;
+
+    private BookRepository bookRepository;
 
     private BookService bookService;
 
