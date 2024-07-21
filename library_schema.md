@@ -24,8 +24,8 @@ CREATE TABLE Patron (
 __-- BorrowedBooks table: tracks borrowed books and their due dates__
 ```sql
 CREATE TABLE BorrowedBooks (
-    PatronID BIGINT,
-    Isbn VARCHAR(225),
+    PatronID BIGINT NOT NULL,
+    Isbn VARCHAR(225) NOT NULL,
     BorrowedDate DATETIME,
     DueDate DATETIME,
     PRIMARY KEY (PatronID, Isbn),

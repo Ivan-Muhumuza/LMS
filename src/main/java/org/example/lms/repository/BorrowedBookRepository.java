@@ -8,59 +8,54 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BorrowedBookRepository {
+    private Connection connection;
 
-    public void addBorrowedBookToDatabase(BorrowedBook borrowedBook) throws SQLException {
-        String query = "INSERT INTO BorrowedBook (PatronID, Isbn, BorrowedDate, DueDate) VALUES (?, ?, ?, ?)";
+    public BorrowedBookRepository(Connection connection) {
+        this.connection = connection;
+    }
+
+    public void addBorrowedBook(BorrowedBook borrowedBook) throws SQLException {
+        String query = "INSERT INTO BorrowedBooks (PatronID, Isbn, BorrowedDate, DueDate) VALUES (?, ?, ?, ?)";
         try (Connection connection = DatabaseUtil.getInstance().getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, borrowedBook.getPatronID());
+            statement.setLong(1, borrowedBook.getPatronID());
             statement.setString(2, borrowedBook.getIsbn());
-            statement.setTimestamp(3, Timestamp.valueOf(borrowedBook.getBorrowedDate()));
-            statement.setTimestamp(4, Timestamp.valueOf(borrowedBook.getDueDate()));
+            statement.setObject(3, borrowedBook.getBorrowedDate());
+            statement.setObject(4, borrowedBook.getDueDate());
             statement.executeUpdate();
         }
     }
 
-    public void updateBorrowedBookInDatabase(BorrowedBook borrowedBook) throws SQLException {
-        String query = "UPDATE BorrowedBook SET BorrowedDate = ?, DueDate = ? WHERE PatronID = ? AND Isbn = ?";
-        try (Connection connection = DatabaseUtil.getInstance().getConnection();
-             PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setTimestamp(1, Timestamp.valueOf(borrowedBook.getBorrowedDate()));
-            statement.setTimestamp(2, Timestamp.valueOf(borrowedBook.getDueDate()));
-            statement.setInt(3, borrowedBook.getPatronID());
-            statement.setString(4, borrowedBook.getIsbn());
-            statement.executeUpdate();
-        }
-    }
-
-    public void deleteBorrowedBookFromDatabase(int patronID, String isbn) throws SQLException {
-        String query = "DELETE FROM BorrowedBook WHERE PatronID = ? AND Isbn = ?";
-        try (Connection connection = DatabaseUtil.getInstance().getConnection();
-             PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, patronID);
-            statement.setString(2, isbn);
-            statement.executeUpdate();
-        }
-    }
-
-    public BorrowedBook getBorrowedBookFromDatabase(int patronID, String isbn) throws SQLException {
-        String query = "SELECT * FROM BorrowedBook WHERE PatronID = ? AND Isbn = ?";
-        try (Connection connection = DatabaseUtil.getInstance().getConnection();
-             PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, patronID);
-            statement.setString(2, isbn);
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                return new BorrowedBook(
-                        resultSet.getInt("PatronID"),
-                        resultSet.getString("Isbn"),
-                        resultSet.getTimestamp("BorrowedDate").toLocalDateTime(),
-                        resultSet.getTimestamp("DueDate").toLocalDateTime()
+    public List<BorrowedBook> getBorrowedBooksByPatron(long patronID) throws SQLException {
+        List<BorrowedBook> borrowedBooks = new ArrayList<>();
+        String query = "SELECT * FROM BorrowedBooks WHERE PatronID = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setLong(1, patronID);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                BorrowedBook borrowedBook = new BorrowedBook(
+                        rs.getLong("PatronID"),
+                        rs.getString("Isbn"),
+                        rs.getObject("BorrowedDate", LocalDateTime.class),
+                        rs.getObject("DueDate", LocalDateTime.class)
                 );
+                borrowedBooks.add(borrowedBook);
             }
-            return null;
+        }
+        return borrowedBooks;
+    }
+
+    public void returnBook(long patronID, String isbn) throws SQLException {
+        String query = "DELETE FROM BorrowedBooks WHERE PatronID = ? AND Isbn = ?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setLong(1, patronID);
+            statement.setString(2, isbn);
+            statement.executeUpdate();
         }
     }
 }

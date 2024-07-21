@@ -8,10 +8,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.example.lms.controller.book.AddBookController;
 import org.example.lms.controller.book.ManageBookController;
+import org.example.lms.controller.transaction.ManageTransactionController;
 import org.example.lms.model.Book;
 import org.example.lms.model.Librarian;
 import org.example.lms.model.Patron;
 import org.example.lms.service.BookService;
+import org.example.lms.service.BorrowedBookService;
 import org.example.lms.service.PatronService;
 import org.example.lms.service.TransactionService;
 
@@ -54,6 +56,8 @@ public class LibrarianDashboardController {
 
     private TransactionService transactionService;
 
+    private BorrowedBookService borrowedBookService;
+
     // Setters for dependency injection
     public void setBookService(BookService bookService) {
         this.bookService = bookService;
@@ -65,8 +69,8 @@ public class LibrarianDashboardController {
         populatePatronsTable();
     }
 
-    public void setTransactionService(TransactionService transactionService) {
-        this.transactionService = transactionService;
+    public void setBorrowedBookService(BorrowedBookService borrowedBookService) {
+        this.borrowedBookService = borrowedBookService;
     }
 
     @FXML
@@ -143,7 +147,22 @@ public class LibrarianDashboardController {
 
     @FXML
     private void handleManageTransactions() {
-        showAlert(Alert.AlertType.INFORMATION, "Manage Transactions", "Manage transactions functionality is not implemented yet.");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/lms/transaction/manage_transaction.fxml"));
+            Parent root = loader.load();
+
+            ManageTransactionController controller = loader.getController();
+            controller.setBorrowedBookService(borrowedBookService);
+
+            // Switch to the manage transactions scene
+            Stage stage = (Stage) manageTransactionsButton.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Manage Transactions");
+
+        } catch (IOException e) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Could not open the manage transactions scene.");
+            e.printStackTrace();
+        }
     }
 
     private void handleSearch(String query) {

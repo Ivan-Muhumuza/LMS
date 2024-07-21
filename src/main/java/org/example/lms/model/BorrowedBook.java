@@ -4,24 +4,24 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
 public class BorrowedBook {
-    private int PatronID;
+    private long PatronID;
     private String Isbn;
     private LocalDateTime BorrowedDate;
     private LocalDateTime DueDate;
 
-    public BorrowedBook(int patronID, String isbn, LocalDateTime borrowedDate, LocalDateTime dueDate) {
-        PatronID = patronID;
-        Isbn = isbn;
-        BorrowedDate = borrowedDate.truncatedTo(ChronoUnit.SECONDS);
-        DueDate = dueDate.truncatedTo(ChronoUnit.SECONDS);
+    public BorrowedBook(long patronID, String isbn, LocalDateTime borrowedDate, LocalDateTime dueDate) {
+        this.PatronID = patronID;
+        this.Isbn = isbn;
+        this.BorrowedDate = borrowedDate;
+        this.DueDate = dueDate;
     }
 
-    public int getPatronID() {
+    public long getPatronID() {
         return PatronID;
     }
 
-    public void setPatronID(int patronID) {
-        PatronID = patronID;
+    public void setPatronID(long patronID) {
+        this.PatronID = patronID;
     }
 
     public String getIsbn() {
@@ -29,7 +29,7 @@ public class BorrowedBook {
     }
 
     public void setIsbn(String isbn) {
-        Isbn = isbn;
+        this.Isbn = isbn;
     }
 
     public LocalDateTime getBorrowedDate() {
@@ -37,7 +37,7 @@ public class BorrowedBook {
     }
 
     public void setBorrowedDate(LocalDateTime borrowedDate) {
-        BorrowedDate = borrowedDate;
+        this.BorrowedDate = borrowedDate;
     }
 
     public LocalDateTime getDueDate() {
@@ -45,6 +45,6 @@ public class BorrowedBook {
     }
 
     public void setDueDate(LocalDateTime dueDate) {
-        DueDate = dueDate;
+        this.DueDate = dueDate;
     }
 }

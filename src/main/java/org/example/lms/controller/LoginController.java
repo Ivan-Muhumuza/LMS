@@ -3,6 +3,7 @@ package org.example.lms.controller;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.example.lms.repository.BorrowedBookRepository;
 import org.example.lms.repository.TransactionRepository;
 import org.example.lms.service.AuthenticationService;
 import org.example.lms.model.Librarian;
@@ -13,9 +14,13 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import org.example.lms.service.BookService;
+import org.example.lms.service.BorrowedBookService;
 import org.example.lms.service.TransactionService;
+import org.example.lms.util.DatabaseUtil;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.sql.Connection;
 
 public class LoginController {
 
@@ -57,21 +62,22 @@ public class LoginController {
 
             if (controller instanceof LibrarianDashboardController librarianController) {
                 // Create the necessary repository instance
-                TransactionRepository transactionRepository = new TransactionRepository();
+                Connection connection = DatabaseUtil.getInstance().getConnection();
+                BorrowedBookRepository borrowedBookRepository = new BorrowedBookRepository(connection);
 
                 // Initialize the service with the repository
-                TransactionService transactionService = new TransactionService(transactionRepository);
+                BorrowedBookService borrowedBookService = new BorrowedBookService(connection);
 
                 // Set the services on the controller
                 librarianController.setBookService(new BookService()); // Provide the actual BookService instance
-                librarianController.setTransactionService(transactionService);
+                librarianController.setBorrowedBookService(borrowedBookService);
             }
 
             Stage stage = (Stage) emailField.getScene().getWindow();
             stage.setScene(scene);
             stage.setTitle(title);
             stage.show();
-        } catch (IOException e) {
+        } catch (IOException | SQLException e) {
             showAlert(Alert.AlertType.ERROR, "Navigation Error", "Could not load the dashboard.");
             e.printStackTrace();
         }

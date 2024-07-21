@@ -9,18 +9,10 @@
       <change beforePath="$PROJECT_DIR$/library_schema.md" beforeDir="false" afterPath="$PROJECT_DIR$/library_schema.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/LibrarianDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/LibrarianDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/book/ManageBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/book/ManageBookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/patron/AddPatronController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/patron/AddPatronController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/patron/ManagePatronController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/patron/ManagePatronController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Library.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Patron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Patron.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/LibraryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/LibraryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/PatronRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/PatronRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/service/LibraryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/service/LibraryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/service/PatronService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/service/PatronService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/util/PatronIDGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/util/PatronIDGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/lms/patron/add_patron_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/lms/patron/add_patron_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/lms/patron/manage_patron.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/lms/patron/manage_patron.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/model/BorrowedBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/model/BorrowedBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/BorrowedBookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/BorrowedBookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/service/BorrowedBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/service/BorrowedBookService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,7 +233,7 @@
       <workItem from="1720779777930" duration="4006000" />
       <workItem from="1721227671059" duration="59756000" />
       <workItem from="1721543607303" duration="229000" />
-      <workItem from="1721543852736" duration="6320000" />
+      <workItem from="1721543852736" duration="14506000" />
     </task>
     <servers />
   </component>
