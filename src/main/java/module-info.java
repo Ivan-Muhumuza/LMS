@@ -5,6 +5,7 @@ module org.example.lms {
     requires org.apache.commons.dbcp2;
     requires jbcrypt;
     requires mysql.connector.j;
+    requires com.h2database;
 
 
     exports org.example.lms;

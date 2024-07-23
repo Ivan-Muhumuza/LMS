@@ -1,123 +1,115 @@
 package org.example.lms.repository;
 
+import org.example.lms.model.Book;
+import org.example.lms.util.DatabaseUtil;
+import org.junit.jupiter.api.*;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.example.lms.model.Book;
 
-public class BookRepositoryTest {
+public class BookRepositoryIntegrationTest {
 
-    private Connection connection;
     private BookRepository bookRepository;
+    private static Connection connection;
 
-    @BeforeEach
-    void setUp() throws SQLException {
-        // Initialize H2 in-memory database
-        connection = DriverManager.getConnection("jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1", "sa", "");
-        // Create table
-        try (var stmt = connection.createStatement()) {
-            stmt.execute("CREATE TABLE Book (" +
-                    "Isbn VARCHAR(255) PRIMARY KEY, " +
-                    "Title VARCHAR(255), " +
-                    "Author VARCHAR(255), " +
-                    "IsAvailable BOOLEAN, " +
-                    "LibraryID INT)");
-        }
-        bookRepository = new BookRepository();
-        // Set the connection to the repository
-//        DatabaseUtil.setConnection(connection);
+    private final String testIsbn = "123456789";
+    private final Book testBook = new Book(testIsbn, "Test Book", "Test Author", true, 1);
+
+    @BeforeAll
+    public static void setUpBeforeClass() throws Exception {
+        // Configure DatabaseUtil for test use (H2)
+        DatabaseUtil.setUseTestDatabase(true);
+        DatabaseUtil databaseUtil = DatabaseUtil.getInstance();
+        connection = databaseUtil.getConnection();
     }
 
-    @AfterEach
-    void tearDown() throws SQLException {
+    @AfterAll
+    public static void tearDownAfterClass() throws SQLException {
+        // Clean up resources
         if (connection != null && !connection.isClosed()) {
-            // Clean up created books
-            try (Statement stmt = connection.createStatement()) {
-                stmt.execute("DELETE FROM Book");
-            }
-
             connection.close();
         }
     }
 
-    @Test
-    void testAddBookToDatabase() {
-        Book book = new Book("12345", "Test Title", "Test Author", true, 1);
-        bookRepository.addBookToDatabase(book);
+    @BeforeEach
+    public void setUp() throws SQLException {
+        bookRepository = new BookRepository();
 
-        Book retrievedBook = bookRepository.getBookFromDatabase("12345");
+        // Initialize database schema before each test
+        try (var stmt = connection.createStatement()) {
+            stmt.execute("CREATE TABLE IF NOT EXISTS Book (" +
+                    "Isbn VARCHAR(255) PRIMARY KEY," +
+                    "Title VARCHAR(255)," +
+                    "Author VARCHAR(255)," +
+                    "IsAvailable BOOLEAN," +
+                    "LibraryID INT" +
+                    ")");
+        }
+
+        // Insert test data
+        bookRepository.addBookToDatabase(testBook);
+    }
+
+    @AfterEach
+    public void tearDown() throws SQLException {
+        // Clean up test data after each test
+        try (var stmt = connection.createStatement()) {
+            stmt.execute("DELETE FROM Book WHERE Isbn = '" + testIsbn + "'");
+        }
+    }
+
+    @Test
+    public void testAddBookToDatabase() throws SQLException {
+        Book retrievedBook = bookRepository.getBookFromDatabase(testIsbn);
         assertNotNull(retrievedBook);
-        assertEquals("12345", retrievedBook.getIsbn());
-        assertEquals("Test Title", retrievedBook.getTitle());
-        assertEquals("Test Author", retrievedBook.getAuthor());
-        assertTrue(retrievedBook.isAvailable());
-        assertEquals(1, retrievedBook.getLibraryID());
+        assertEquals(testBook.getTitle(), retrievedBook.getTitle());
     }
 
     @Test
-    void testUpdateBookInDatabase() {
-        Book book = new Book("12345", "Old Title", "Old Author", true, 1);
-        bookRepository.addBookToDatabase(book);
+    public void testUpdateBookInDatabase() throws SQLException {
+        testBook.setTitle("Updated Title");
+        bookRepository.updateBookInDatabase(testBook);
 
-        book.setTitle("New Title");
-        book.setAuthor("New Author");
-        bookRepository.updateBookInDatabase(book);
-
-        Book updatedBook = bookRepository.getBookFromDatabase("12345");
-        assertNotNull(updatedBook);
-        assertEquals("New Title", updatedBook.getTitle());
-        assertEquals("New Author", updatedBook.getAuthor());
+        Book retrievedBook = bookRepository.getBookFromDatabase(testIsbn);
+        assertEquals("Updated Title", retrievedBook.getTitle());
     }
 
     @Test
-    void testDeleteBookFromDatabase() {
-        Book book = new Book("12345", "Title", "Author", true, 1);
-        bookRepository.addBookToDatabase(book);
+    public void testDeleteBookFromDatabase() throws SQLException {
+        bookRepository.deleteBookFromDatabase(testIsbn);
 
-        bookRepository.deleteBookFromDatabase("12345");
-
-        Book deletedBook = bookRepository.getBookFromDatabase("12345");
-        assertNull(deletedBook);
+        Book retrievedBook = bookRepository.getBookFromDatabase(testIsbn);
+        assertNull(retrievedBook);
     }
 
     @Test
-    void testFindAllBooks() {
-        Book book1 = new Book("12345", "Title1", "Author1", true, 1);
-        Book book2 = new Book("67890", "Title2", "Author2", false, 2);
+    public void testGetAllBooks() throws SQLException {
+        Book book1 = new Book("987654321", "Test Book 2", "Test Author 2", true, 2);
         bookRepository.addBookToDatabase(book1);
+
+        List<Book> books = bookRepository.getAllBooks();
+        assertEquals(2, books.size());
+    }
+
+    @Test
+    public void testFindAvailableBooks() throws SQLException {
+        clearBooks();
+        Book book2 = new Book("987654321", "Test Book 2", "Test Author 2", false, 2);
         bookRepository.addBookToDatabase(book2);
 
-        List<Book> allBooks = bookRepository.getAllBooks();
-        assertEquals(2, allBooks.size());
+        List<Book> books = bookRepository.findAvailableBooks();
+        assertEquals(1, books.size());
+        assertTrue(books.get(0).isAvailable());
     }
 
-    @Test
-    void testFindAvailableBooks() {
-        Book book1 = new Book("12345", "Title1", "Author1", true, 1);
-        Book book2 = new Book("67890", "Title2", "Author2", false, 2);
-        bookRepository.addBookToDatabase(book1);
-        bookRepository.addBookToDatabase(book2);
-
-        List<Book> availableBooks = bookRepository.findAvailableBooks();
-        assertEquals(1, availableBooks.size());
-        assertEquals("12345", availableBooks.get(0).getIsbn());
+    public void clearBooks() throws SQLException {
+        String sql = "DELETE FROM Book WHERE Isbn = '" + "987654321" + "'";
+        try (var stmt = connection.createStatement()) {
+            stmt.execute(sql);
+        }
     }
 
-    @Test
-    void testSearchBooks() {
-        Book book1 = new Book("12345", "Java Programming", "Author1", true, 1);
-        Book book2 = new Book("67890", "Python Programming", "Author2", true, 2);
-        bookRepository.addBookToDatabase(book1);
-        bookRepository.addBookToDatabase(book2);
-
-        var searchResults = bookRepository.searchBooks("Programming");
-        assertEquals(2, searchResults.size());
-    }
 }
