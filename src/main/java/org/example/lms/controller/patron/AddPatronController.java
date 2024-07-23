@@ -6,6 +6,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.example.lms.model.Patron;
+import org.example.lms.repository.PatronRepository;
 import org.example.lms.service.PatronService;
 import org.example.lms.util.PatronIDGenerator;
 
@@ -13,7 +14,8 @@ public class AddPatronController {
     @FXML private TextField nameField;
     @FXML private TextField emailField;
 
-    private PatronService patronService = new PatronService();
+    private PatronRepository patronRepository;
+    private PatronService patronService = new PatronService(patronRepository);
 
     public void setPatronService(PatronService patronService) {
         this.patronService = patronService;

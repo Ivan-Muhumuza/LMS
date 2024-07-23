@@ -13,8 +13,8 @@ public class PatronService {
 
     private final PatronRepository patronRepository;
 
-    public PatronService() {
-        this.patronRepository = new PatronRepository();
+    public PatronService(PatronRepository patronRepository) {
+        this.patronRepository = patronRepository;
     }
 
     public void addPatron(Patron patron) {
@@ -34,4 +34,5 @@ public class PatronService {
         return FXCollections.observableArrayList(patrons);
     }
 }
+
 

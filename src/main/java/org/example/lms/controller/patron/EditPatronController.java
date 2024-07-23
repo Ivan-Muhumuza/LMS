@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.example.lms.model.Book;
 import org.example.lms.model.Patron;
+import org.example.lms.repository.PatronRepository;
 import org.example.lms.service.BookService;
 import org.example.lms.service.PatronService;
 
@@ -19,10 +20,11 @@ public class EditPatronController {
 
     private Patron patron;
 
+    private PatronRepository patronRepository;
     private PatronService patronService;
 
     public EditPatronController(){
-        this.patronService = new PatronService();
+        this.patronService = new PatronService(patronRepository);
     }
 
     public void setPatronService(PatronService patronService) {

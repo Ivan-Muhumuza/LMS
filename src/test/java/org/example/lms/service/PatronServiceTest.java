@@ -1,40 +1,31 @@
 package org.example.lms.service;
-
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.example.lms.model.Patron;
 import org.example.lms.repository.PatronRepository;
-import org.example.lms.service.PatronService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.Mockito;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-@ExtendWith(MockitoExtension.class)
 public class PatronServiceTest {
 
-    @Mock
     private PatronRepository patronRepository;
-
-    @InjectMocks
     private PatronService patronService;
 
     @BeforeEach
-    void setUp() {
-        patronService = new PatronService();
+    public void setUp() {
+        patronRepository = Mockito.mock(PatronRepository.class);
+        patronService = new PatronService(patronRepository);
     }
 
     @Test
-    void testAddPatron() {
-        Patron patron = new Patron(1L, "John Doe", "johndoe@example.com");
+    public void testAddPatron() {
+        Patron patron = new Patron(12345, "Patrick Mugabe","pmugabe@gmail.com");
 
         patronService.addPatron(patron);
 
@@ -42,8 +33,8 @@ public class PatronServiceTest {
     }
 
     @Test
-    void testUpdatePatron() {
-        Patron patron = new Patron(1L, "John Doe", "johndoe@example.com");
+    public void testUpdatePatron() {
+        Patron patron = new Patron(12345, "Patrick Mugabe","pmugabe@gmail.com");
 
         patronService.updatePatron(patron);
 
@@ -51,8 +42,8 @@ public class PatronServiceTest {
     }
 
     @Test
-    void testDeletePatron() {
-        long patronID = 1L;
+    public void testDeletePatron() {
+        long patronID = 1;
 
         patronService.deletePatron(patronID);
 
@@ -60,18 +51,17 @@ public class PatronServiceTest {
     }
 
     @Test
-    void testGetAllPatrons() {
-        List<Patron> expectedPatrons = Arrays.asList(
-                new Patron(1L, "John Doe", "johndoe@example.com"),
-                new Patron(2L, "Jane Smith", "janesmith@example.com")
-        );
+    public void testGetAllPatrons() {
+        Patron patron1 = new Patron(12345, "Patrick Mugabe","pmugabe@gmail.com");
+        Patron patron2 = new Patron(67891, "Rose Kituyi","rosekituyi@gmail.com");
+        List<Patron> patrons = Arrays.asList(patron1, patron2);
 
-        when(patronRepository.getAllPatrons()).thenReturn(expectedPatrons);
+        when(patronRepository.getAllPatrons()).thenReturn(patrons);
 
-        ObservableList<Patron> actualPatrons = patronService.getAllPatrons();
+        ObservableList<Patron> result = patronService.getAllPatrons();
 
-        assertEquals(FXCollections.observableArrayList(expectedPatrons), actualPatrons);
+        assertEquals(2, result.size());
+        assertTrue(result.contains(patron1));
+        assertTrue(result.contains(patron2));
     }
 }
-
-

@@ -16,7 +16,7 @@ import org.example.lms.model.Book;
 import org.example.lms.model.Patron;
 import org.example.lms.service.BookService;
 import org.example.lms.service.PatronService;
-
+import org.example.lms.repository.PatronRepository;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -29,7 +29,8 @@ public class ManagePatronController {
     @FXML private TextField searchPatronField;
     @FXML private Button backToDashboardButton;
 
-    private PatronService patronService = new PatronService();
+    private PatronRepository patronRepository;
+    private PatronService patronService = new PatronService(patronRepository);
 
     public ManagePatronController(){
     }
