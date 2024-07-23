@@ -13,10 +13,9 @@ import java.util.List;
 public class BorrowedBookService {
     private final BorrowedBookRepository borrowedBookRepository;
 
-    public BorrowedBookService(Connection connection) {
-        this.borrowedBookRepository = new BorrowedBookRepository(connection);
+    public BorrowedBookService(BorrowedBookRepository borrowedBookRepository) {
+        this.borrowedBookRepository = borrowedBookRepository;
     }
-
 
     public void borrowBook(long patronID, String isbn, LocalDateTime borrowedDate, LocalDateTime dueDate) throws SQLException {
         // Check if the book is available

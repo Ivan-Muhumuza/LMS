@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import javafx.scene.Node;
 import org.example.lms.model.Patron;
 import org.example.lms.repository.PatronRepository;
+import org.example.lms.repository.BorrowedBookRepository;
 import org.example.lms.service.BorrowedBookService;
 import org.example.lms.util.DatabaseUtil;
 import org.example.lms.controller.book.ManageBookController;
@@ -50,13 +51,14 @@ public class ManageTransactionController {
     private Button backToDashboardButton;
     @FXML
     private BorrowedBookService borrowedBookService;
+
     private PatronRepository patronRepository;
+
+    private BorrowedBookRepository borrowedBookRepository;
 
     @FXML
     private void initialize() throws SQLException {
-        // Initialize with a database connection
-        Connection connection = DatabaseUtil.getInstance().getConnection();
-        this.borrowedBookService = new BorrowedBookService(connection);
+        this.borrowedBookService = new BorrowedBookService(borrowedBookRepository);
 
         this.patronRepository = new PatronRepository();
         setupPatronIDComboBox();
@@ -80,8 +82,6 @@ public class ManageTransactionController {
         ObservableList<Long> observablePatronIds = FXCollections.observableArrayList(patronIds);
         patronIDComboBox.setItems(observablePatronIds);
     }
-
-
 
     @FXML
     private void handleBorrowBook() {
@@ -120,27 +120,6 @@ public class ManageTransactionController {
         }
     }
 
-
-//    @FXML
-//    private void handleViewBorrowedBooks(ActionEvent event) {
-//        try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/lms/transaction/borrowed_books_view.fxml"));
-//            Parent root = loader.load();
-//
-//            BorrowedBooksViewController controller = loader.getController();
-//            controller.setBorrowedBookService(borrowedBookService);
-//
-//            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//            Scene scene = new Scene(root);
-//            currentStage.setScene(scene);
-//            currentStage.setTitle("Borrowed Books");
-//        } catch (IOException e) {
-//            showAlert(Alert.AlertType.ERROR, "Error", "Unable to load the borrowed books view.");
-//            e.printStackTrace();
-//        }
-//    }
-
-
     @FXML
     private void handleViewBorrowedBooks() {
         try {
@@ -160,9 +139,6 @@ public class ManageTransactionController {
             e.printStackTrace();
         }
     }
-
-
-
 
     @FXML
     private void handleBackToDashboard() throws IOException {

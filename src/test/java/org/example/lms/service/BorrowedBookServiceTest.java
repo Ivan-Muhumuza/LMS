@@ -2,14 +2,9 @@ package org.example.lms.service;
 
 import org.example.lms.model.BorrowedBook;
 import org.example.lms.repository.BorrowedBookRepository;
-import org.example.lms.service.BorrowedBookService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,55 +17,63 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-@ExtendWith(MockitoExtension.class)
 public class BorrowedBookServiceTest {
 
-    @Mock
-    private Connection connection;
-
-    @Mock
-    private PreparedStatement preparedStatement;
-
-    @Mock
-    private ResultSet resultSet;
-
-    @Mock
     private BorrowedBookRepository borrowedBookRepository;
-
     private BorrowedBookService borrowedBookService;
+    private Connection mockConnection;
+    private PreparedStatement mockPreparedStatement;
+    private ResultSet mockResultSet;
 
     @BeforeEach
-    void setUp() throws SQLException {
-        borrowedBookRepository = new BorrowedBookRepository(connection);
-        borrowedBookService = new BorrowedBookService(connection);
+    public void setUp() {
+        borrowedBookRepository = Mockito.mock(BorrowedBookRepository.class);
+        borrowedBookService = new BorrowedBookService(borrowedBookRepository);
+        mockConnection = Mockito.mock(Connection.class);
+        mockPreparedStatement = Mockito.mock(PreparedStatement.class);
+        mockResultSet = Mockito.mock(ResultSet.class);
+
+        borrowedBookRepository.connection = mockConnection;
     }
 
     @Test
-    void testBorrowBook() throws SQLException {
-        // Setup
-        long patronID = 1L;
-        String isbn = "12345";
+    public void testBorrowBookSuccessfully() throws SQLException {
+        String isbn = "123456789";
+        long patronID = 1;
         LocalDateTime borrowedDate = LocalDateTime.now();
         LocalDateTime dueDate = borrowedDate.plusDays(14);
 
-        when(connection.prepareStatement(anyString())).thenReturn(preparedStatement);
-        when(preparedStatement.executeQuery()).thenReturn(resultSet);
-        when(resultSet.next()).thenReturn(true);
-        when(resultSet.getInt("IsAvailable")).thenReturn(1);
+        when(mockConnection.prepareStatement(anyString())).thenReturn(mockPreparedStatement);
+        when(mockPreparedStatement.executeQuery()).thenReturn(mockResultSet);
+        when(mockResultSet.next()).thenReturn(true);
+        when(mockResultSet.getInt("IsAvailable")).thenReturn(1);
 
-        // Act
         borrowedBookService.borrowBook(patronID, isbn, borrowedDate, dueDate);
 
-        // Verify
         verify(borrowedBookRepository, times(1)).addBorrowedBook(any(BorrowedBook.class));
     }
 
+    @Test
+    public void testBorrowBookThrowsExceptionWhenBookNotAvailable() throws SQLException {
+        String isbn = "123456789";
+        long patronID = 1;
+        LocalDateTime borrowedDate = LocalDateTime.now();
+        LocalDateTime dueDate = borrowedDate.plusDays(14);
 
+        when(mockConnection.prepareStatement(anyString())).thenReturn(mockPreparedStatement);
+        when(mockPreparedStatement.executeQuery()).thenReturn(mockResultSet);
+        when(mockResultSet.next()).thenReturn(true);
+        when(mockResultSet.getInt("IsAvailable")).thenReturn(0);
+
+        assertThrows(IllegalStateException.class, () -> borrowedBookService.borrowBook(patronID, isbn, borrowedDate, dueDate));
+
+        verify(borrowedBookRepository, times(0)).addBorrowedBook(any(BorrowedBook.class));
+    }
 
     @Test
-    void testReturnBook() throws SQLException {
-        long patronID = 1L;
-        String isbn = "12345";
+    public void testReturnBookSuccessfully() throws SQLException {
+        String isbn = "123456789";
+        long patronID = 1;
 
         borrowedBookService.returnBook(patronID, isbn);
 
@@ -78,31 +81,33 @@ public class BorrowedBookServiceTest {
     }
 
     @Test
-    void testGetBorrowedBooks() throws SQLException {
-        long patronID = 1L;
-        List<BorrowedBook> expectedBooks = Arrays.asList(
-                new BorrowedBook(patronID, "12345", LocalDateTime.now(), LocalDateTime.now().plusDays(14)),
-                new BorrowedBook(patronID, "67890", LocalDateTime.now(), LocalDateTime.now().plusDays(14))
-        );
+    public void testGetBorrowedBooks() throws SQLException {
+        long patronID = 1;
+        BorrowedBook book1 = new BorrowedBook(patronID, "123456789", LocalDateTime.now(), LocalDateTime.now().plusDays(14));
+        BorrowedBook book2 = new BorrowedBook(patronID, "987654321", LocalDateTime.now(), LocalDateTime.now().plusDays(14));
+        List<BorrowedBook> borrowedBooks = Arrays.asList(book1, book2);
 
-        when(borrowedBookRepository.getBorrowedBooksByPatron(patronID)).thenReturn(expectedBooks);
+        when(borrowedBookRepository.getBorrowedBooksByPatron(patronID)).thenReturn(borrowedBooks);
 
-        List<BorrowedBook> actualBooks = borrowedBookService.getBorrowedBooks(patronID);
+        List<BorrowedBook> result = borrowedBookService.getBorrowedBooks(patronID);
 
-        assertEquals(expectedBooks, actualBooks);
+        assertEquals(2, result.size());
+        assertTrue(result.contains(book1));
+        assertTrue(result.contains(book2));
     }
 
     @Test
-    void testGetAllBorrowedBooks() throws SQLException {
-        List<BorrowedBook> expectedBooks = Arrays.asList(
-                new BorrowedBook(1L, "12345", LocalDateTime.now(), LocalDateTime.now().plusDays(14)),
-                new BorrowedBook(2L, "67890", LocalDateTime.now(), LocalDateTime.now().plusDays(14))
-        );
+    public void testGetAllBorrowedBooks() throws SQLException {
+        BorrowedBook book1 = new BorrowedBook(1, "123456789", LocalDateTime.now(), LocalDateTime.now().plusDays(14));
+        BorrowedBook book2 = new BorrowedBook(2, "987654321", LocalDateTime.now(), LocalDateTime.now().plusDays(14));
+        List<BorrowedBook> borrowedBooks = Arrays.asList(book1, book2);
 
-        when(borrowedBookRepository.findAllBorrowedBooks()).thenReturn(expectedBooks);
+        when(borrowedBookRepository.findAllBorrowedBooks()).thenReturn(borrowedBooks);
 
-        List<BorrowedBook> actualBooks = borrowedBookService.getAllBorrowedBooks();
+        List<BorrowedBook> result = borrowedBookService.getAllBorrowedBooks();
 
-        assertEquals(expectedBooks, actualBooks);
+        assertEquals(2, result.size());
+        assertTrue(result.contains(book1));
+        assertTrue(result.contains(book2));
     }
 }

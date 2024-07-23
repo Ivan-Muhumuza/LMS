@@ -64,7 +64,7 @@ public class LoginController {
                 BorrowedBookRepository borrowedBookRepository = new BorrowedBookRepository(connection);
 
                 // Initialize the service with the repository
-                BorrowedBookService borrowedBookService = new BorrowedBookService(connection);
+                BorrowedBookService borrowedBookService = new BorrowedBookService(borrowedBookRepository);
 
                 // Set the services on the controller
                 BookRepository bookRepository = new BookRepository();

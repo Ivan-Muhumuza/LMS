@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26363f89-0b20-4392-9063-57e2eb66d29c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/service/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/util/DatabaseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/util/DatabaseUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/lms/service/BookServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/lms/service/BookServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/transaction/ManageTransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/transaction/ManageTransactionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/service/BorrowedBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/service/BorrowedBookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/lms/service/BorrowedBookServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/lms/service/BorrowedBookServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,9 +80,14 @@
     "JUnit.BookServiceTest.testAddBookThrowsExceptionWhenBookExists.executor": "Run",
     "JUnit.BookServiceTest.testAddBook_Success.executor": "Run",
     "JUnit.BookServiceTest.testDeleteBook.executor": "Run",
+    "JUnit.BookServiceTest.testDeleteBookSuccessfully.executor": "Run",
+    "JUnit.BookServiceTest.testDeleteBookThrowsExceptionWhenBookNotFound.executor": "Run",
     "JUnit.BookServiceTest.testGetAllBooks.executor": "Run",
+    "JUnit.BookServiceTest.testGetAvailableBooks.executor": "Run",
     "JUnit.BookServiceTest.testGetBook.executor": "Run",
+    "JUnit.BookServiceTest.testSearchBooks.executor": "Run",
     "JUnit.BookServiceTest.testUpdateBookSuccessfully.executor": "Run",
+    "JUnit.BookServiceTest.testUpdateBookThrowsExceptionWhenBookNotFound.executor": "Run",
     "JUnit.BookServiceTest.testUpdateBook_Success.executor": "Run",
     "JUnit.BorrowedBookRepositoryTest.executor": "Run",
     "JUnit.BorrowedBookServiceTest.executor": "Run",
@@ -152,7 +154,7 @@
       <recent name="views" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BookServiceTest">
+  <component name="RunManager" selected="JUnit.BorrowedBookServiceTest">
     <configuration name="BookServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LMS" />
       <extension name="coverage">
@@ -179,22 +181,6 @@
       <option name="PACKAGE_NAME" value="org.example.lms.service" />
       <option name="MAIN_CLASS_NAME" value="org.example.lms.service.BookServiceTest" />
       <option name="METHOD_NAME" value="testAddBookThrowsExceptionWhenBookExists" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BookServiceTest.testGetAllBooks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="LMS" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.lms.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example.lms.service" />
-      <option name="MAIN_CLASS_NAME" value="org.example.lms.service.BookServiceTest" />
-      <option name="METHOD_NAME" value="testGetAllBooks" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -232,13 +218,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BorrowedBookServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LMS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.lms.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.lms.service" />
+      <option name="MAIN_CLASS_NAME" value="org.example.lms.service.BorrowedBookServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BorrowedBookServiceTest" />
         <item itemvalue="JUnit.BookServiceTest" />
         <item itemvalue="JUnit.BookServiceTest.testAddBookThrowsExceptionWhenBookExists" />
         <item itemvalue="JUnit.BookServiceTest.testSearchBooks" />
         <item itemvalue="JUnit.BookServiceTest.testGetAvailableBooks" />
-        <item itemvalue="JUnit.BookServiceTest.testGetAllBooks" />
       </list>
     </recent_temporary>
   </component>
@@ -265,7 +266,7 @@
       <workItem from="1721567837229" duration="21210000" />
       <workItem from="1721597830791" duration="5901000" />
       <workItem from="1721759598284" duration="104000" />
-      <workItem from="1721760228390" duration="2026000" />
+      <workItem from="1721760228390" duration="3163000" />
     </task>
     <servers />
   </component>
