@@ -8,19 +8,36 @@ import com.mysql.cj.jdbc.MysqlDataSource;
 import org.example.lms.model.Librarian;
 import org.mindrot.jbcrypt.BCrypt;
 
+import com.mysql.cj.jdbc.MysqlDataSource;
+import org.h2.jdbcx.JdbcDataSource;
+
+//import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
 import javax.sql.DataSource;
 import java.sql.*;
 
 public class DatabaseUtil {
     private static DatabaseUtil instance;
     private DataSource dataSource;
+    private static boolean useTestDatabase = false; // Add this flag to switch databases
 
     private DatabaseUtil() {
-        MysqlDataSource mysqlDS = new MysqlDataSource();
-        mysqlDS.setURL("jdbc:mysql://localhost:3306/library_schema");
-        mysqlDS.setUser("root");
-        mysqlDS.setPassword("Pioneer4!");
-        this.dataSource = mysqlDS;
+        if (useTestDatabase) {
+            // Initialize H2 DataSource
+            JdbcDataSource h2DataSource = new JdbcDataSource();
+            h2DataSource.setURL("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1");
+            h2DataSource.setUser("sa");
+            h2DataSource.setPassword("");
+            this.dataSource = h2DataSource;
+        } else {
+            // Initialize MySQL DataSource
+            MysqlDataSource mysqlDataSource = new MysqlDataSource();
+            mysqlDataSource.setURL("jdbc:mysql://localhost:3306/library_schema");
+            mysqlDataSource.setUser("root");
+            mysqlDataSource.setPassword("password123");
+            this.dataSource = mysqlDataSource;
+        }
     }
 
     public static synchronized DatabaseUtil getInstance() {
@@ -28,6 +45,13 @@ public class DatabaseUtil {
             instance = new DatabaseUtil();
         }
         return instance;
+    }
+
+    public static void setUseTestDatabase(boolean useTestDatabase) {
+        // Method to change the database mode
+        DatabaseUtil.useTestDatabase = useTestDatabase;
+        // Reset instance to apply changes
+        instance = null;
     }
 
     public Connection getConnection() throws SQLException {
@@ -66,7 +90,6 @@ public class DatabaseUtil {
                     }
                 }
             }
-
         }
         return null; // User not found or password incorrect
     }
