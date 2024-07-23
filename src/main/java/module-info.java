@@ -21,4 +21,6 @@ module org.example.lms {
     opens org.example.lms.util to javafx.fxml;
     opens org.example.lms.controller.patron to javafx.fxml;
     opens org.example.lms.controller.transaction to javafx.fxml;
+    opens org.example.lms.repository to org.mockito;
+    opens org.example.lms.service to org.mockito;
 }

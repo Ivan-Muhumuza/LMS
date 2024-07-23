@@ -1,41 +1,37 @@
 package org.example.lms.service;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.example.lms.model.Book;
 import org.example.lms.repository.BookRepository;
-import org.example.lms.service.BookService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.mockito.junit.jupiter.MockitoExtension;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.times;
 
-@ExtendWith(MockitoExtension.class)
+import java.util.Arrays;
+import java.util.List;
+
+
 public class BookServiceTest {
 
-    @Mock
     private BookRepository bookRepository;
-
-    @InjectMocks
     private BookService bookService;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
+        bookRepository = Mockito.mock(BookRepository.class);
+        bookService = new BookService(bookRepository);
     }
 
     @Test
-    void testAddBook() {
-        Book book = new Book("12345", "Title", "Author", true, 1);
+    public void testAddBookSuccessfully() {
+        Book book = new Book("123456789", "Called to Action", "James Mukasa", true, 1);
+
+        Mockito.when(bookRepository.getBookFromDatabase(book.getIsbn())).thenReturn(null);
 
         bookService.addBook(book);
 
@@ -43,74 +39,101 @@ public class BookServiceTest {
     }
 
     @Test
-    void testUpdateBook() {
-        Book book = new Book("12345", "Updated Title", "Updated Author", true, 1);
-        Book existingBook = new Book("12345", "Old Title", "Old Author", true, 1);
+    public void testAddBookThrowsExceptionWhenBookExists() {
+        Book book = new Book("123456789", "Called to Action", "James Mukasa", true, 1);
+        Book existingBook = new Book("123456789", "Not Called Book", "Jane Makeka", true, 1);
 
-        // Stub the getBookFromDatabase method
-        when(bookRepository.getBookFromDatabase("12345")).thenReturn(existingBook);
+        Mockito.when(bookRepository.getBookFromDatabase(book.getIsbn())).thenReturn(existingBook);
 
-        // Call the method under test
+        assertThrows(IllegalArgumentException.class, () -> bookService.addBook(book));
+
+        verify(bookRepository, times(0)).addBookToDatabase(book);
+    }
+
+    @Test
+    public void testUpdateBookSuccessfully() {
+        Book book = new Book("123456789", "Called to Action", "James Mukasa", true, 1);
+
+        Mockito.when(bookRepository.getBookFromDatabase(book.getIsbn())).thenReturn(book);
+
         bookService.updateBook(book);
 
-        // Verify that the repository's updateBookInDatabase method was called with the correct book
         verify(bookRepository, times(1)).updateBookInDatabase(book);
     }
 
     @Test
-    void testDeleteBook(){
-        String isbn = "12345";
-        Book book = new Book(isbn, "Title", "Author", true, 1);
-        when(bookRepository.getBookFromDatabase(isbn)).thenReturn(book);
+    public void testUpdateBookThrowsExceptionWhenBookNotFound() {
+        Book book = new Book("123456789", "Called to Action", "James Mukasa", true, 1);
 
-        bookService.deleteBook(isbn);
+        Mockito.when(bookRepository.getBookFromDatabase(book.getIsbn())).thenReturn(null);
 
-        verify(bookRepository).deleteBookFromDatabase(isbn);
+        assertThrows(IllegalArgumentException.class, () -> bookService.updateBook(book));
+
+        verify(bookRepository, times(0)).updateBookInDatabase(book);
     }
 
     @Test
-    void testGetBook() {
-        String isbn = "12345";
-        Book book = new Book(isbn, "Title", "Author", true, 1);
-        when(bookRepository.getBookFromDatabase(isbn)).thenReturn(book);
+    public void testDeleteBookSuccessfully() {
+        Book book = new Book("123456789", "Called to Action", "James Mukasa", true, 1);
 
-        Book result = bookService.getBook(isbn);
+        Mockito.when(bookRepository.getBookFromDatabase(book.getIsbn())).thenReturn(book);
 
-        assertEquals(book, result);
+        bookService.deleteBook(book.getIsbn());
+
+        verify(bookRepository, times(1)).deleteBookFromDatabase(book.getIsbn());
     }
 
+    @Test
+    public void testDeleteBookThrowsExceptionWhenBookNotFound() {
+        String isbn = "123456789";
+
+        Mockito.when(bookRepository.getBookFromDatabase(isbn)).thenReturn(null);
+
+        assertThrows(IllegalArgumentException.class, () -> bookService.deleteBook(isbn));
+
+        verify(bookRepository, times(0)).deleteBookFromDatabase(isbn);
+    }
 
     @Test
-    void testGetAllBooks() {
-        List<Book> books = new ArrayList<>();
-        books.add(new Book("12345", "Title1", "Author1", true, 1));
-        books.add(new Book("67890", "Title2", "Author2", true, 2));
-        when(bookRepository.getAllBooks()).thenReturn(books);
+    public void testGetAllBooks() {
+        Book book1 = new Book("123456789", "Called to Action", "James Mukasa", true, 1);
+        Book book2 = new Book("123456789", "Not Called Book", "Jane Makeka", true, 1);
+        List<Book> books = Arrays.asList(book1, book2);
+
+        Mockito.when(bookRepository.getAllBooks()).thenReturn(books);
 
         ObservableList<Book> result = bookService.getAllBooks();
 
         assertEquals(2, result.size());
+        assertTrue(result.contains(book1));
+        assertTrue(result.contains(book2));
     }
 
     @Test
-    void testGetAvailableBooks() {
-        List<Book> books = new ArrayList<>();
-        books.add(new Book("12345", "Title1", "Author1", true, 1));
-        when(bookRepository.findAvailableBooks()).thenReturn(books);
+    public void testGetAvailableBooks() {
+        Book book1 = new Book("123456789", "Called to Action", "James Mukasa", true, 1);
+        Book book2 = new Book("123456789", "Not Called Book", "Jane Makeka", true, 1);
+        List<Book> availableBooks = Arrays.asList(book1, book2);
+
+        Mockito.when(bookRepository.findAvailableBooks()).thenReturn(availableBooks);
 
         ObservableList<Book> result = bookService.getAvailableBooks();
 
-        assertEquals(1, result.size());
+        assertEquals(2, result.size());
+        assertTrue(result.contains(book1));
+        assertTrue(result.contains(book2));
     }
 
     @Test
-    void testSearchBooks() {
-        List<Book> books = new ArrayList<>();
-        books.add(new Book("12345", "Title1", "Author1", true, 1));
-        when(bookRepository.searchBooks(anyString())).thenReturn(FXCollections.observableArrayList(books));
+    public void testSearchBooks() {
+        Book book1 = new Book("123456789", "Called to Action", "James Mukasa", true, 1);
+        List<Book> foundBooks = Arrays.asList(book1);
 
-        ObservableList<Book> result = bookService.searchBooks("Title1");
+        Mockito.when(bookRepository.searchBooks("Mockito")).thenReturn(FXCollections.observableArrayList(foundBooks));
+
+        ObservableList<Book> result = bookService.searchBooks("Mockito");
 
         assertEquals(1, result.size());
+        assertTrue(result.contains(book1));
     }
 }

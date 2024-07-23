@@ -3,8 +3,8 @@ package org.example.lms.controller;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.example.lms.repository.BookRepository;
 import org.example.lms.repository.BorrowedBookRepository;
-import org.example.lms.repository.TransactionRepository;
 import org.example.lms.service.AuthenticationService;
 import org.example.lms.model.Librarian;
 import javafx.fxml.FXML;
@@ -12,10 +12,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import org.example.lms.service.BookService;
 import org.example.lms.service.BorrowedBookService;
-import org.example.lms.service.TransactionService;
 import org.example.lms.util.DatabaseUtil;
 
 import java.io.IOException;
@@ -69,7 +67,8 @@ public class LoginController {
                 BorrowedBookService borrowedBookService = new BorrowedBookService(connection);
 
                 // Set the services on the controller
-                librarianController.setBookService(new BookService()); // Provide the actual BookService instance
+                BookRepository bookRepository = new BookRepository();
+                librarianController.setBookService(new BookService(bookRepository)); // Provide the actual BookService instance
                 librarianController.setBorrowedBookService(borrowedBookService);
             }
 

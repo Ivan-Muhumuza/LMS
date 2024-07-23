@@ -11,8 +11,8 @@ public class BookService {
 
     private final BookRepository bookRepository;
 
-    public BookService() {
-        this.bookRepository = new BookRepository();
+    public BookService(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
     }
 
     public void addBook(Book book) throws IllegalArgumentException {
@@ -85,7 +85,6 @@ public class BookService {
     public ObservableList<Book> searchBooks(String keyword) {
         return bookRepository.searchBooks(keyword);
     }
-
 
 }
 
