@@ -75,7 +75,7 @@ public class TransactionService {
         }
     }
 
-    private boolean isBookAvailable(String bookIsbn) {
+    public boolean isBookAvailable(String bookIsbn) {
         // Implement logic to check if the book is available
         // This might involve querying the database or another repository
         return true; // Placeholder

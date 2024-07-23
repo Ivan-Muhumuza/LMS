@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26363f89-0b20-4392-9063-57e2eb66d29c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/patron/AddPatronController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/patron/AddPatronController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/patron/EditPatronController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/patron/EditPatronController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/patron/ManagePatronController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/patron/ManagePatronController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/service/LibrarianService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/service/LibrarianService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/service/PatronService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/service/PatronService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/lms/service/PatronServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/lms/service/PatronServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/service/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/service/TransactionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/lms/service/TransactionServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/lms/service/TransactionServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,6 +111,7 @@
     "JUnit.LibrarianRepositoryTest.executor": "Run",
     "JUnit.PatronRepositoryTest.executor": "Run",
     "JUnit.PatronServiceTest.executor": "Run",
+    "JUnit.TransactionServiceTest.executor": "Run",
     "Maven.LMS [clean].executor": "Run",
     "Maven.LMS [test].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -157,7 +153,7 @@
       <recent name="views" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PatronServiceTest">
+  <component name="RunManager" selected="JUnit.TransactionServiceTest">
     <configuration name="BookServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LMS" />
       <extension name="coverage">
@@ -184,22 +180,6 @@
       <option name="PACKAGE_NAME" value="org.example.lms.service" />
       <option name="MAIN_CLASS_NAME" value="org.example.lms.service.BookServiceTest" />
       <option name="METHOD_NAME" value="testAddBookThrowsExceptionWhenBookExists" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BookServiceTest.testSearchBooks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="LMS" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.lms.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example.lms.service" />
-      <option name="MAIN_CLASS_NAME" value="org.example.lms.service.BookServiceTest" />
-      <option name="METHOD_NAME" value="testSearchBooks" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -235,13 +215,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TransactionServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LMS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.lms.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.lms.service" />
+      <option name="MAIN_CLASS_NAME" value="org.example.lms.service.TransactionServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TransactionServiceTest" />
         <item itemvalue="JUnit.PatronServiceTest" />
         <item itemvalue="JUnit.BorrowedBookServiceTest" />
         <item itemvalue="JUnit.BookServiceTest" />
         <item itemvalue="JUnit.BookServiceTest.testAddBookThrowsExceptionWhenBookExists" />
-        <item itemvalue="JUnit.BookServiceTest.testSearchBooks" />
       </list>
     </recent_temporary>
   </component>
@@ -268,7 +263,7 @@
       <workItem from="1721567837229" duration="21210000" />
       <workItem from="1721597830791" duration="5901000" />
       <workItem from="1721759598284" duration="104000" />
-      <workItem from="1721760228390" duration="4508000" />
+      <workItem from="1721760228390" duration="5696000" />
     </task>
     <servers />
   </component>
