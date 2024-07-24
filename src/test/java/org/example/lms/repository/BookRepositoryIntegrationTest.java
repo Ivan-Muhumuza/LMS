@@ -96,7 +96,7 @@ public class BookRepositoryIntegrationTest {
 
     @Test
     public void testFindAvailableBooks() throws SQLException {
-        clearBooks();
+        clearBook();
         Book book2 = new Book("987654321", "Test Book 2", "Test Author 2", false, 2);
         bookRepository.addBookToDatabase(book2);
 
@@ -105,7 +105,7 @@ public class BookRepositoryIntegrationTest {
         assertTrue(books.get(0).isAvailable());
     }
 
-    public void clearBooks() throws SQLException {
+    public void clearBook() throws SQLException {
         String sql = "DELETE FROM Book WHERE Isbn = '" + "987654321" + "'";
         try (var stmt = connection.createStatement()) {
             stmt.execute(sql);

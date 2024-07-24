@@ -35,6 +35,27 @@ public class BorrowedBookRepository {
         }
     }
 
+    public BorrowedBook getBorrowedBook(String isbn) throws SQLException {
+        String selectQuery = "SELECT PatronID, Isbn, BorrowedDate, DueDate FROM BorrowedBooks WHERE Isbn = ?";
+
+        try (PreparedStatement selectStmt = connection.prepareStatement(selectQuery)) {
+            selectStmt.setString(1, isbn);
+
+            try (ResultSet resultSet = selectStmt.executeQuery()) {
+                if (resultSet.next()) {
+                    long patronID = resultSet.getLong("PatronID");
+                    String bookIsbn = resultSet.getString("Isbn");
+                    LocalDateTime borrowedDate = resultSet.getObject("BorrowedDate", LocalDateTime.class);
+                    LocalDateTime dueDate = resultSet.getObject("DueDate", LocalDateTime.class);
+
+                    return new BorrowedBook(patronID, bookIsbn, borrowedDate, dueDate);
+                } else {
+                    return null; // or throw an exception if book not found
+                }
+            }
+        }
+    }
+
     public void returnBook(long patronID, String isbn) throws SQLException {
         String deleteQuery = "DELETE FROM BorrowedBooks WHERE PatronID = ? AND Isbn = ?";
         String updateQuery = "UPDATE Book SET IsAvailable = 1 WHERE Isbn = ?";
