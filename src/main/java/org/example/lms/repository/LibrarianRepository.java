@@ -48,8 +48,11 @@ public class LibrarianRepository {
         String query = "UPDATE Librarian SET LibraryID = ?, Name = ?, Email = ? WHERE LibrarianID = ?";
         try (Connection connection = DatabaseUtil.getInstance().getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
-            setLibrarianParameters(statement, librarian);
-            statement.executeUpdate();
+                statement.setInt(1, librarian.getLibraryID());
+                statement.setString(2, librarian.getName());
+                statement.setString(3, librarian.getEmail());
+                statement.setLong(4, librarian.getLibrarianID());
+                statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }

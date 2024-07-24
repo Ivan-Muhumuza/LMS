@@ -4,11 +4,6 @@ public class Librarian extends User{
     private int LibrarianID;
     private int LibraryID;
 
-//    public Librarian(int librarianID, int libraryID) {
-//        LibrarianID = librarianID;
-//        LibraryID = libraryID;
-//    }
-
     public Librarian(int librarianID, int libraryID, String name, String email, String password) {
         super(name, email, password);
         this.LibrarianID = librarianID;
