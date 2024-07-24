@@ -52,11 +52,11 @@ public class PatronRepository {
         }
     }
 
-    public Patron getPatron(int patronID) {
+    public Patron getPatron(Long patronID) {
         String query = "SELECT * FROM Patron WHERE PatronID = ?";
         try (Connection connection = DatabaseUtil.getInstance().getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, patronID);
+            statement.setLong(1, patronID);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 return new Patron(

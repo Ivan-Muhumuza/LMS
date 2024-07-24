@@ -6,6 +6,8 @@ import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.util.Objects;
+
 public class Patron {
     private final LongProperty patronID;
     private final StringProperty name;
@@ -29,4 +31,21 @@ public class Patron {
     public String getEmail() { return email.get(); }
     public void setEmail(String email) { this.email.set(email); }
     public StringProperty emailProperty() { return email; }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Patron patron = (Patron) o;
+        return getPatronID() == patron.getPatronID() &&
+                Objects.equals(getName(), patron.getName()) &&
+                Objects.equals(getEmail(), patron.getEmail());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getPatronID(), getName(), getEmail());
+    }
+
+
 }
