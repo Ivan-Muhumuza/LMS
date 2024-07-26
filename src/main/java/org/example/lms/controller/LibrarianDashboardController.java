@@ -33,6 +33,7 @@ import java.util.List;
 
 public class LibrarianDashboardController {
 
+    // FXML fields for buttons and table views in the UI
     @FXML
     private Button manageTransactionsButton;
     @FXML
@@ -52,6 +53,7 @@ public class LibrarianDashboardController {
     @FXML
     private TextField searchField;
 
+    // Dependencies for repositories and services
     private PatronRepository patronRepository;
 
     private BookRepository bookRepository;
@@ -64,7 +66,7 @@ public class LibrarianDashboardController {
 
     private BorrowedBookService borrowedBookService;
 
-    // Setters for dependency injection
+    // Setter methods for dependency injection
     public void setBookService(BookService bookService) {
         this.bookService = bookService;
         populateBooksTable();
@@ -79,25 +81,27 @@ public class LibrarianDashboardController {
         this.borrowedBookService = borrowedBookService;
     }
 
+    // Method to initialize the controller
     @FXML
     private void initialize() {
-        // Initialize table columns
+        // Initialize table columns with the corresponding property values
         isbnColumn.setCellValueFactory(new PropertyValueFactory<>("isbn"));
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         authorColumn.setCellValueFactory(new PropertyValueFactory<>("author"));
 
-        // Set button actions
+        // Set button actions for managing transactions, patrons, and books
         manageTransactionsButton.setOnAction(e -> handleManageTransactions());
         managePatronsButton.setOnAction(e -> handleManagePatrons());
         manageBooksButton.setOnAction(e -> handleManageBooks());
 
-        // Add search field listener
+        // Add a listener to the search field to filter books based on user input
         searchField.textProperty().addListener((observable, oldValue, newValue) -> handleSearch(newValue));
 
         // Populate books table when the controller is initialized
         populateBooksTable();
     }
 
+    // Method to populate the books table with data from the book service
     private void populateBooksTable() {
         if (bookService != null) {
             ObservableList<Book> books = bookService.getAllBooks();
@@ -105,6 +109,7 @@ public class LibrarianDashboardController {
         }
     }
 
+    // Method to populate the patrons table with data from the patron service
     private void populatePatronsTable() {
         if (patronsTableView != null) {
             // Fetch and set items to the TableView
@@ -114,6 +119,7 @@ public class LibrarianDashboardController {
         }
     }
 
+    // Handler for the "Manage Patrons" button click event
     @FXML
     private void handleManagePatrons() {
         try {
@@ -130,6 +136,7 @@ public class LibrarianDashboardController {
     }
 
 
+    // Handler for the "Manage Books" button click event
     @FXML
     private void handleManageBooks() {
         try {
@@ -151,6 +158,7 @@ public class LibrarianDashboardController {
     }
 
 
+    // Handler for the "Manage Transactions" button click event
     @FXML
     private void handleManageTransactions() {
         try {
@@ -171,6 +179,7 @@ public class LibrarianDashboardController {
         }
     }
 
+    // Handler for the search field to filter books based on user input
     private void handleSearch(String query) {
         if (bookService != null) {
             List<Book> filteredBooks = bookService.searchBooks(query);
@@ -178,6 +187,7 @@ public class LibrarianDashboardController {
         }
     }
 
+    // Helper method to show alerts to the user
     private void showAlert(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
