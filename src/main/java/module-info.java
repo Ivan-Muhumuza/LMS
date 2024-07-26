@@ -8,11 +8,12 @@ module org.example.lms {
     requires com.h2database;
 
 
-    exports org.example.lms;
+    exports org.example.lms.app;
     exports org.example.lms.model;
     exports org.example.lms.util;
-    exports org.example.lms.controller.book;
+    exports org.example.lms.service;
     exports org.example.lms.controller;
+    exports org.example.lms.controller.book;
     exports org.example.lms.controller.patron;
     exports org.example.lms.controller.transaction;
 

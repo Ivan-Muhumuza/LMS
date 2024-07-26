@@ -85,4 +85,32 @@ public class Book {
     public void setLibraryID(int libraryID) {
         this.libraryID.set(libraryID);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return Objects.equals(isbn.get(), book.isbn.get()) &&
+                Objects.equals(title.get(), book.title.get()) &&
+                Objects.equals(author.get(), book.author.get()) &&
+                Objects.equals(isAvailable.get(), book.isAvailable.get()) &&
+                Objects.equals(libraryID.get(), book.libraryID.get());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(isbn.get(), title.get(), author.get(), isAvailable.get(), libraryID.get());
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "isbn=" + isbn.get() +
+                ", title=" + title.get() +
+                ", author=" + author.get() +
+                ", isAvailable=" + isAvailable.get() +
+                ", libraryID=" + libraryID.get() +
+                '}';
+    }
 }

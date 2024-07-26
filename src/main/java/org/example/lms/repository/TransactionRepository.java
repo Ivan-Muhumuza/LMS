@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TransactionRepository {
 
@@ -65,6 +67,27 @@ public class TransactionRepository {
                 );
             }
             return null;
+        }
+    }
+
+    public List<Transaction> getAllTransactions() throws SQLException {
+        String query = "SELECT * FROM Transaction";
+        try (Connection connection = DatabaseUtil.getInstance().getConnection();
+             PreparedStatement statement = connection.prepareStatement(query);
+             ResultSet resultSet = statement.executeQuery()) {
+
+            List<Transaction> transactions = new ArrayList<>();
+            while (resultSet.next()) {
+                transactions.add(new Transaction(
+                        resultSet.getInt("TransactionID"),
+                        resultSet.getInt("PatronID"),
+                        resultSet.getString("BookIsbn"),
+                        resultSet.getTimestamp("TransactionDate").toLocalDateTime(),
+                        resultSet.getTimestamp("DueDate").toLocalDateTime(),
+                        resultSet.getInt("TypeID")
+                ));
+            }
+            return transactions;
         }
     }
 }

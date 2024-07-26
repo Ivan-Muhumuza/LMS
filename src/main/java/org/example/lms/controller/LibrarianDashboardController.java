@@ -135,27 +135,41 @@ public class LibrarianDashboardController {
         }
     }
 
-
-    // Handler for the "Manage Books" button click event
     @FXML
     private void handleManageBooks() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/lms/book/manage_book.fxml"));
             Parent root = loader.load();
-
-            ManageBookController controller = loader.getController();
-            controller.setBookService(bookService);
-
-            // Switch to the manage books scene
-            Stage stage = (Stage) manageBooksButton.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Manage Books");
-
+            Scene scene = new Scene(root);
+            Stage primaryStage = (Stage) manageBooksButton.getScene().getWindow();
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("Manage Books");
         } catch (IOException e) {
-            showAlert(Alert.AlertType.ERROR, "Error", "Could not open the manage book scene.");
+            showAlert(Alert.AlertType.ERROR, "Error", "Could not open the manage books page.");
             e.printStackTrace();
         }
     }
+
+//    // Handler for the "Manage Books" button click event
+//    @FXML
+//    private void handleManageBooks() {
+//        try {
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/lms/book/manage_book.fxml"));
+//            Parent root = loader.load();
+//
+//            ManageBookController controller = loader.getController();
+//            controller.setBookService(bookService);
+//
+//            // Switch to the manage books scene
+//            Stage stage = (Stage) manageBooksButton.getScene().getWindow();
+//            stage.setScene(new Scene(root));
+//            stage.setTitle("Manage Books");
+//
+//        } catch (IOException e) {
+//            showAlert(Alert.AlertType.ERROR, "Error", "Could not open the manage book scene.");
+//            e.printStackTrace();
+//        }
+//    }
 
 
     // Handler for the "Manage Transactions" button click event

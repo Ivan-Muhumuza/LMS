@@ -55,7 +55,7 @@ public class BookService {
         return book;
     }
 
-    private void validateBook(Book book) {
+    void validateBook(Book book) {
         if (book == null) {
             throw new IllegalArgumentException("Book cannot be null.");
         }

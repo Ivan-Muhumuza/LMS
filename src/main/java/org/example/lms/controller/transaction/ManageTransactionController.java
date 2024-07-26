@@ -2,7 +2,6 @@ package org.example.lms.controller.transaction;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,7 +10,6 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -20,13 +18,13 @@ import java.util.stream.Collectors;
 
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.scene.Node;
+import org.example.lms.controller.LibrarianDashboardController;
 import org.example.lms.model.Patron;
 import org.example.lms.repository.PatronRepository;
 import org.example.lms.repository.BorrowedBookRepository;
+import org.example.lms.service.BookService;
 import org.example.lms.service.BorrowedBookService;
-import org.example.lms.util.DatabaseUtil;
-import org.example.lms.controller.book.ManageBookController;
+
 
 public class ManageTransactionController {
 
@@ -51,6 +49,8 @@ public class ManageTransactionController {
     private Button backToDashboardButton;
     @FXML
     private BorrowedBookService borrowedBookService;
+
+    private static BookService bookService;
 
     private PatronRepository patronRepository;
 
@@ -140,16 +140,34 @@ public class ManageTransactionController {
         }
     }
 
+//    @FXML
+//    private void handleBackToDashboard() throws IOException {
+//        // Load the Dashboard view
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/lms/librarian_dashboard.fxml"));
+//        ManageBookController.populateBooksTable();
+//        Parent root = loader.load();
+//        Scene scene = new Scene(root);
+//        Stage stage = (Stage) backToDashboardButton.getScene().getWindow();
+//        stage.setScene(scene);
+//        stage.show();
+//    }
+
     @FXML
-    private void handleBackToDashboard() throws IOException {
-        // Load the Dashboard view
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/lms/librarian_dashboard.fxml"));
-        ManageBookController.populateBooksTable();
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) backToDashboardButton.getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+    private void handleBackToDashboard() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/lms/librarian/librarian_dashboard.fxml"));
+            Parent root = loader.load();
+
+            LibrarianDashboardController controller = loader.getController();
+            controller.setBookService(bookService); // Ensure PatronService is set again
+
+            Stage stage = (Stage) backToDashboardButton.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Library Dashboard");
+        } catch (IOException e) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Could not open the dashboard scene.");
+            e.printStackTrace();
+        }
     }
 
     private void showAlert(Alert.AlertType type, String title, String message) {

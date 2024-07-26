@@ -1,4 +1,4 @@
-package org.example.lms;
+package org.example.lms.app;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +15,7 @@ import java.sql.SQLException;
 public class LMSApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException, SQLException {
-        FXMLLoader fxmlLoader = new FXMLLoader(LMSApplication.class.getResource("login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(LMSApplication.class.getResource("/org/example/lms/app/login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         // Create repositories
         LibrarianRepository librarianRepository = new LibrarianRepository();

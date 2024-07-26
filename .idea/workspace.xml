@@ -6,9 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="26363f89-0b20-4392-9063-57e2eb66d29c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Patron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Patron.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/PatronRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/PatronRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/lms/repository/PatronRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/lms/repository/PatronRepositoryIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/LMSApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/app/LMSApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/LibrarianDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/LibrarianDashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/book/ManageBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/book/ManageBookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/patron/ManagePatronController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/patron/ManagePatronController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/transaction/ManageTransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/transaction/ManageTransactionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/TransactionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/TransactionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/service/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/util/DatabaseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/util/DatabaseUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/lms/librarian_dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/lms/librarian/librarian_dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/lms/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/lms/app/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/lms/repository/BookRepositoryIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/lms/repository/BookRepositoryIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/lms/repository/PatronRepositoryIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/lms/repository/PatronRepositoryIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/lms/service/BookServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/lms/service/BookServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,10 +81,14 @@
     "Application.DatabaseUtilTestss.executor": "Run",
     "Application.HelloApplication.executor": "Run",
     "Application.LMSApplication.executor": "Run",
+    "JUnit.AuthenticationServiceTest.executor": "Run",
+    "JUnit.AuthenticationServiceTest.testAuthenticateLibrarianSuccessfully.executor": "Run",
     "JUnit.BookRepositoryIntegrationTest.executor": "Run",
     "JUnit.BookRepositoryIntegrationTest.testAddBookToDatabase.executor": "Run",
     "JUnit.BookRepositoryIntegrationTest.testFindAvailableBooks.executor": "Run",
     "JUnit.BookRepositoryIntegrationTest.testGetAllBooks.executor": "Run",
+    "JUnit.BookRepositoryIntegrationTest.testSearchBooks (1).executor": "Run",
+    "JUnit.BookRepositoryIntegrationTest.testSearchBooks.executor": "Run",
     "JUnit.BookRepositoryTest.executor": "Run",
     "JUnit.BookRepositoryTest.testAddBookToDatabase (1).executor": "Run",
     "JUnit.BookRepositoryTest.testAddBookToDatabase.executor": "Run",
@@ -82,13 +100,25 @@
     "JUnit.BookServiceTest.testDeleteBook.executor": "Run",
     "JUnit.BookServiceTest.testDeleteBookSuccessfully.executor": "Run",
     "JUnit.BookServiceTest.testDeleteBookThrowsExceptionWhenBookNotFound.executor": "Run",
+    "JUnit.BookServiceTest.testDeleteBookThrowsExceptionWhenIsbnIsInvalid.executor": "Run",
+    "JUnit.BookServiceTest.testDeleteBookThrowsExceptionWhenIsbnIsNull.executor": "Run",
     "JUnit.BookServiceTest.testGetAllBooks.executor": "Run",
     "JUnit.BookServiceTest.testGetAvailableBooks.executor": "Run",
     "JUnit.BookServiceTest.testGetBook.executor": "Run",
+    "JUnit.BookServiceTest.testGetBookSuccessfully.executor": "Run",
+    "JUnit.BookServiceTest.testGetBookThrowsExceptionWhenBookNotFound.executor": "Run",
+    "JUnit.BookServiceTest.testGetBookThrowsExceptionWhenIsbnIsEmpty.executor": "Run",
+    "JUnit.BookServiceTest.testGetBookThrowsExceptionWhenIsbnIsInvalid.executor": "Run",
+    "JUnit.BookServiceTest.testGetBookThrowsExceptionWhenIsbnIsNull.executor": "Run",
     "JUnit.BookServiceTest.testSearchBooks.executor": "Run",
     "JUnit.BookServiceTest.testUpdateBookSuccessfully.executor": "Run",
     "JUnit.BookServiceTest.testUpdateBookThrowsExceptionWhenBookNotFound.executor": "Run",
     "JUnit.BookServiceTest.testUpdateBook_Success.executor": "Run",
+    "JUnit.BookServiceTest.testValidateBookSuccessfully.executor": "Run",
+    "JUnit.BookServiceTest.testValidateBookThrowsException.executor": "Run",
+    "JUnit.BookServiceTest.testValidateBookThrowsExceptionWhenBookIsNull.executor": "Run",
+    "JUnit.BookServiceTest.testValidateBookThrowsExceptionWhenIsbnIsEmpty.executor": "Run",
+    "JUnit.BookServiceTest.testValidateBookThrowsExceptionWhenIsbnIsNull.executor": "Run",
     "JUnit.BorrowedBookRepositoryIntegrationTest.executor": "Run",
     "JUnit.BorrowedBookRepositoryIntegrationTest.testAddBorrowedBook.executor": "Run",
     "JUnit.BorrowedBookRepositoryIntegrationTest.testGetAllBorrowedBooks.executor": "Run",
@@ -115,13 +145,18 @@
     "JUnit.DatabaseUtilTest.testUpdateLibrarianInDatabase.executor": "Run",
     "JUnit.DatabaseUtilTest.testUpdatePatronInDatabase.executor": "Run",
     "JUnit.DatabaseUtilTest.testUpdateTransactionInDatabase.executor": "Run",
+    "JUnit.LMSApplicationMainTest.executor": "Run",
+    "JUnit.LMSApplicationTest.executor": "Run",
     "JUnit.LibrarianRepositoryIntegrationTest.executor": "Run",
     "JUnit.LibrarianRepositoryIntegrationTest.testUpdateLibrarian.executor": "Run",
     "JUnit.LibrarianRepositoryTest.executor": "Run",
     "JUnit.PatronRepositoryIntegrationTest.executor": "Run",
+    "JUnit.PatronRepositoryIntegrationTest.testAddPatron.executor": "Run",
     "JUnit.PatronRepositoryIntegrationTest.testGetAllPatrons.executor": "Run",
+    "JUnit.PatronRepositoryIntegrationTest.testGetPatronByEmail.executor": "Run",
     "JUnit.PatronRepositoryTest.executor": "Run",
     "JUnit.PatronServiceTest.executor": "Run",
+    "JUnit.TransactionRepositoryIntegrationTest.executor": "Run",
     "JUnit.TransactionServiceTest.executor": "Run",
     "Maven.LMS [clean].executor": "Run",
     "Maven.LMS [test].executor": "Run",
@@ -148,6 +183,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/org/example/lms/librarian" />
+      <recent name="$PROJECT_DIR$/src/main/resources/org/example/lms/app" />
       <recent name="$PROJECT_DIR$/src/main/java/org/example/lms" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/java" />
@@ -164,8 +201,8 @@
       <recent name="views" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PatronRepositoryIntegrationTest">
-    <configuration name="BorrowedBookRepositoryIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.PatronRepositoryIntegrationTest.testGetPatronByEmailNotFound">
+    <configuration name="BookRepositoryIntegrationTest.testSearchBooks (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LMS" />
       <extension name="coverage">
         <pattern>
@@ -174,44 +211,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.example.lms.repository" />
-      <option name="MAIN_CLASS_NAME" value="org.example.lms.repository.BorrowedBookRepositoryIntegrationTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LibrarianRepositoryIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="LMS" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.lms.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example.lms.repository" />
-      <option name="MAIN_CLASS_NAME" value="org.example.lms.repository.LibrarianRepositoryIntegrationTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LibrarianRepositoryIntegrationTest.testUpdateLibrarian" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="LMS" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.lms.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example.lms.repository" />
-      <option name="MAIN_CLASS_NAME" value="org.example.lms.repository.LibrarianRepositoryIntegrationTest" />
-      <option name="METHOD_NAME" value="testUpdateLibrarian" />
+      <option name="MAIN_CLASS_NAME" value="org.example.lms.repository.BookRepositoryIntegrationTest" />
+      <option name="METHOD_NAME" value="testSearchBooks" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PatronRepositoryIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BookRepositoryIntegrationTest.testSearchBooks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LMS" />
       <extension name="coverage">
         <pattern>
@@ -220,13 +227,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.example.lms.repository" />
-      <option name="MAIN_CLASS_NAME" value="org.example.lms.repository.PatronRepositoryIntegrationTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="org.example.lms.repository.BookRepositoryIntegrationTest" />
+      <option name="METHOD_NAME" value="testSearchBooks(java.lang.String,java.lang.String)" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PatronRepositoryIntegrationTest.testGetAllPatrons" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PatronRepositoryIntegrationTest.testAddPatron" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LMS" />
       <extension name="coverage">
         <pattern>
@@ -236,7 +244,39 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example.lms.repository" />
       <option name="MAIN_CLASS_NAME" value="org.example.lms.repository.PatronRepositoryIntegrationTest" />
-      <option name="METHOD_NAME" value="testGetAllPatrons" />
+      <option name="METHOD_NAME" value="testAddPatron" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PatronRepositoryIntegrationTest.testGetPatronByEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LMS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.lms.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.lms.repository" />
+      <option name="MAIN_CLASS_NAME" value="org.example.lms.repository.PatronRepositoryIntegrationTest" />
+      <option name="METHOD_NAME" value="testGetPatronByEmail" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PatronRepositoryIntegrationTest.testGetPatronByEmailNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LMS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.lms.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.lms.repository" />
+      <option name="MAIN_CLASS_NAME" value="org.example.lms.repository.PatronRepositoryIntegrationTest" />
+      <option name="METHOD_NAME" value="testGetPatronByEmailNotFound" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -244,11 +284,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PatronRepositoryIntegrationTest" />
-        <item itemvalue="JUnit.PatronRepositoryIntegrationTest.testGetAllPatrons" />
-        <item itemvalue="JUnit.LibrarianRepositoryIntegrationTest" />
-        <item itemvalue="JUnit.LibrarianRepositoryIntegrationTest.testUpdateLibrarian" />
-        <item itemvalue="JUnit.BorrowedBookRepositoryIntegrationTest" />
+        <item itemvalue="JUnit.PatronRepositoryIntegrationTest.testGetPatronByEmailNotFound" />
+        <item itemvalue="JUnit.PatronRepositoryIntegrationTest.testGetPatronByEmail" />
+        <item itemvalue="JUnit.BookRepositoryIntegrationTest.testSearchBooks (1)" />
+        <item itemvalue="JUnit.BookRepositoryIntegrationTest.testSearchBooks" />
+        <item itemvalue="JUnit.PatronRepositoryIntegrationTest.testAddPatron" />
       </list>
     </recent_temporary>
   </component>
@@ -275,7 +315,8 @@
       <workItem from="1721567837229" duration="21210000" />
       <workItem from="1721597830791" duration="5901000" />
       <workItem from="1721759598284" duration="104000" />
-      <workItem from="1721760228390" duration="19027000" />
+      <workItem from="1721760228390" duration="20898000" />
+      <workItem from="1721914656700" duration="26401000" />
     </task>
     <servers />
   </component>

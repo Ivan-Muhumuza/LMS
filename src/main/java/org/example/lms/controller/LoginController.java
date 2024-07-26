@@ -35,6 +35,11 @@ public class LoginController {
         this.authService = authService;
     }
 
+    // Getter for the AuthenticationService (added for testing purposes)
+    public AuthenticationService getAuthenticationService() {
+        return authService;
+    }
+
     @FXML
     private void handleLogin() {
         // Get the email and password entered by the user
@@ -44,7 +49,7 @@ public class LoginController {
         // Attempt to authenticate the librarian with the provided credentials
         Librarian librarian = authService.authenticateLibrarian(email, password);
         if (librarian != null) {
-            navigateToDashboard("/org/example/lms/librarian_dashboard.fxml", "Librarian Dashboard");
+            navigateToDashboard("/org/example/lms/librarian/librarian_dashboard.fxml", "Librarian Dashboard");
             return;
         }
         // If authentication fails, show an error alert

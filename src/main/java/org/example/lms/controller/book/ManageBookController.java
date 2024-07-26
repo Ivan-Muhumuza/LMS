@@ -30,7 +30,7 @@ public class ManageBookController {
     private PatronService patronService;
 
     @FXML
-    private static TableView<Book> booksTableView;
+    private TableView<Book> booksTableView;
 
     @FXML
     private TableColumn<Book, String> isbnColumn;
@@ -48,7 +48,6 @@ public class ManageBookController {
     // Method to set BookService and populate the table
     public void setBookService(BookService bookService) {
         this.bookService = bookService;
-        populateBooksTable();
     }
 
     @FXML
@@ -70,9 +69,10 @@ public class ManageBookController {
         populateBooksTable();
     }
 
-    public static void populateBooksTable() {
+    public void populateBooksTable() {
         if (bookService != null) {
             booksTableView.setItems(bookService.getAllBooks());
+//            booksTableView.setItems(FXCollections.observableArrayList(bookService.getAllBooks()));
         }
     }
 
@@ -86,7 +86,7 @@ public class ManageBookController {
     @FXML
     private void handleBackToDashboard() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/lms/librarian_dashboard.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/lms/librarian/librarian_dashboard.fxml"));
             Parent root = loader.load();
 
             LibrarianDashboardController controller = loader.getController();
@@ -116,6 +116,7 @@ public class ManageBookController {
             controller.setBookService(bookService);
 
             stage.show();
+            populateBooksTable();
         } catch (IOException e) {
             showAlert(Alert.AlertType.ERROR, "Error", "Could not open the add book form.");
             e.printStackTrace();
