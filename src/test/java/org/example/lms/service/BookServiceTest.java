@@ -6,6 +6,10 @@ import org.example.lms.model.Book;
 import org.example.lms.repository.BookRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,6 +18,7 @@ import static org.mockito.Mockito.times;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 
 public class BookServiceTest {
@@ -83,6 +88,17 @@ public class BookServiceTest {
         verify(bookRepository, times(1)).deleteBookFromDatabase(book.getIsbn());
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = { "", " " }) // Testing with empty strings and whitespace
+    public void testDeleteBookThrowsExceptionWhenIsbnIsInvalid(String invalidIsbn) {
+        assertThrows(IllegalArgumentException.class, () -> bookService.deleteBook(invalidIsbn), "ISBN cannot be null or empty.");
+    }
+
+    @Test
+    public void testDeleteBookThrowsExceptionWhenIsbnIsNull() {
+        assertThrows(IllegalArgumentException.class, () -> bookService.deleteBook(null), "ISBN cannot be null or empty.");
+    }
+
     @Test
     public void testDeleteBookThrowsExceptionWhenBookNotFound() {
         String isbn = "123456789";
@@ -92,6 +108,31 @@ public class BookServiceTest {
         assertThrows(IllegalArgumentException.class, () -> bookService.deleteBook(isbn));
 
         verify(bookRepository, times(0)).deleteBookFromDatabase(isbn);
+    }
+    @Test
+    public void testGetBookSuccessfully() {
+        Book book = new Book("123456789", "Called to Action", "James Mukasa", true, 1);
+
+        Mockito.when(bookRepository.getBookFromDatabase(book.getIsbn())).thenReturn(book);
+
+        Book retrievedBook = bookService.getBook(book.getIsbn());
+
+        assertEquals(book, retrievedBook);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = { "", " " }) // Include both empty string and whitespace
+    public void testGetBookThrowsExceptionWhenIsbnIsInvalid(String invalidIsbn) {
+        assertThrows(IllegalArgumentException.class, () -> bookService.getBook(invalidIsbn), "ISBN cannot be null or empty.");
+    }
+
+    @Test
+    public void testGetBookThrowsExceptionWhenBookNotFound() {
+        String isbn = "123456789";
+
+        Mockito.when(bookRepository.getBookFromDatabase(isbn)).thenReturn(null);
+
+        assertThrows(IllegalArgumentException.class, () -> bookService.getBook(isbn), "Book not found.");
     }
 
     @Test
@@ -136,4 +177,30 @@ public class BookServiceTest {
         assertEquals(1, result.size());
         assertTrue(result.contains(book1));
     }
+
+    @Test
+    public void testValidateBookSuccessfully() {
+        Book book = new Book("123456789", "Called to Action", "James Mukasa", true, 1);
+
+        assertDoesNotThrow(() -> bookService.validateBook(book));
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideInvalidBooks")
+    public void testValidateBookThrowsException(Book book, String expectedMessage) {
+        assertThrows(IllegalArgumentException.class, () -> bookService.validateBook(book), expectedMessage);
+    }
+
+    private static Stream<Arguments> provideInvalidBooks() {
+        return Stream.of(
+                Arguments.of(null, "Book cannot be null."),
+                Arguments.of(new Book(null, "Title", "Author", true, 1), "ISBN cannot be null or empty."),
+                Arguments.of(new Book("", "Title", "Author", true, 1), "ISBN cannot be null or empty."),
+                Arguments.of(new Book("123456789", null, "Author", true, 1), "Title cannot be null or empty."),
+                Arguments.of(new Book("123456789", "", "Author", true, 1), "Title cannot be null or empty."),
+                Arguments.of(new Book("123456789", "Title", null, true, 1), "Author cannot be null or empty."),
+                Arguments.of(new Book("123456789", "Title", "", true, 1), "Author cannot be null or empty.")
+        );
+    }
+
 }
