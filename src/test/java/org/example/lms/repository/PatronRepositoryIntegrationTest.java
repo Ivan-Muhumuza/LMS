@@ -110,5 +110,13 @@ public class PatronRepositoryIntegrationTest {
         assertNotNull(retrievedPatron);
         assertEquals(patron.getPatronID(), retrievedPatron.getPatronID());
         assertEquals(patron.getName(), retrievedPatron.getName());
+        assertEquals(patron.getEmail(), retrievedPatron.getEmail());
+    }
+
+    @Test
+    public void testGetPatronByEmailNotFound() throws SQLException {
+        String nonExistentEmail = "nonexistent@example.com";
+        Patron retrievedPatron = patronRepository.getPatronByEmail(nonExistentEmail);
+        assertNull(retrievedPatron);
     }
 }
