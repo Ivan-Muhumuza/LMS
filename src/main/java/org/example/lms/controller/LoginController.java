@@ -23,12 +23,12 @@ import java.sql.Connection;
 public class LoginController {
 
     @FXML
-    private TextField emailField;
+    private TextField emailField;  // TextField for entering email
 
     @FXML
-    private PasswordField passwordField;
+    private PasswordField passwordField;  // PasswordField for entering password
 
-    private AuthenticationService authService;
+    private AuthenticationService authService;  // Service for authenticating users
 
     // Setter for dependency injection
     public void setAuthenticationService(AuthenticationService authService) {
@@ -37,20 +37,24 @@ public class LoginController {
 
     @FXML
     private void handleLogin() {
+        // Get the email and password entered by the user
         String email = emailField.getText();
         String password = passwordField.getText();
 
+        // Attempt to authenticate the librarian with the provided credentials
         Librarian librarian = authService.authenticateLibrarian(email, password);
         if (librarian != null) {
             navigateToDashboard("/org/example/lms/librarian_dashboard.fxml", "Librarian Dashboard");
             return;
         }
+        // If authentication fails, show an error alert
         showAlert(Alert.AlertType.ERROR, "Login Failed", "Invalid email or password.");
     }
 
-    // Added method
+    // Method to navigate to the dashboard
     private void navigateToDashboard(String fxmlFile, String title) {
         try {
+            // Load the FXML file for the dashboard
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent root = loader.load();
             Scene scene = new Scene(root);
@@ -58,6 +62,7 @@ public class LoginController {
             // Get the controller from the loaded FXML
             Object controller = loader.getController();
 
+            // If the controller is an instance of LibrarianDashboardController, set its services
             if (controller instanceof LibrarianDashboardController librarianController) {
                 // Create the necessary repository instance
                 Connection connection = DatabaseUtil.getInstance().getConnection();
@@ -72,17 +77,19 @@ public class LoginController {
                 librarianController.setBorrowedBookService(borrowedBookService);
             }
 
+            // Set the scene and title for the stage (window) and show it
             Stage stage = (Stage) emailField.getScene().getWindow();
             stage.setScene(scene);
             stage.setTitle(title);
             stage.show();
         } catch (IOException | SQLException e) {
+            // If navigation fails, show an error alert and print the stack trace
             showAlert(Alert.AlertType.ERROR, "Navigation Error", "Could not load the dashboard.");
             e.printStackTrace();
         }
     }
 
-
+    // Method to show an alert with a given type, title, and message
     private void showAlert(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
