@@ -1,8 +1,13 @@
 package org.example.lms.repository;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.example.lms.model.Book;
+import org.example.lms.service.BookService;
 import org.example.lms.util.DatabaseUtil;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -112,4 +117,18 @@ public class BookRepositoryIntegrationTest {
         }
     }
 
+    @Test
+    public void testSearchBooks() {
+        BookRepository bookRepository = new BookRepository();
+
+        // Act
+        ObservableList<Book> result = bookRepository.searchBooks("Test");
+
+        // Assert
+        ObservableList<Book> expectedBooks = FXCollections.observableArrayList(
+                new Book(testIsbn, "Test Book", "Test Author", true, 1)
+        );
+
+        assertEquals(expectedBooks, result, "The search result should match the expected books.");
+    }
 }
