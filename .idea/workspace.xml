@@ -6,23 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="26363f89-0b20-4392-9063-57e2eb66d29c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/LMSApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/app/LMSApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/LibrarianDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/LibrarianDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/book/ManageBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/book/ManageBookController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/patron/ManagePatronController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/patron/ManagePatronController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/transaction/BorrowedBooksViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/transaction/BorrowedBooksViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/transaction/ManageTransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/controller/transaction/ManageTransactionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/model/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/TransactionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/repository/TransactionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/service/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/lms/util/DatabaseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/lms/util/DatabaseUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/lms/librarian_dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/lms/librarian/librarian_dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/lms/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/lms/app/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/lms/repository/BookRepositoryIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/lms/repository/BookRepositoryIntegrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/lms/repository/PatronRepositoryIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/lms/repository/PatronRepositoryIntegrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/lms/service/BookServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/lms/service/BookServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/lms/transaction/borrowed_books_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/lms/transaction/borrowed_books_view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/lms/transaction/manage_transaction.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/lms/transaction/manage_transaction.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,112 +65,113 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.DatabaseUtilTest.executor": "Run",
-    "Application.DatabaseUtilTestss.executor": "Run",
-    "Application.HelloApplication.executor": "Run",
-    "Application.LMSApplication.executor": "Run",
-    "JUnit.AuthenticationServiceTest.executor": "Run",
-    "JUnit.AuthenticationServiceTest.testAuthenticateLibrarianSuccessfully.executor": "Run",
-    "JUnit.BookRepositoryIntegrationTest.executor": "Run",
-    "JUnit.BookRepositoryIntegrationTest.testAddBookToDatabase.executor": "Run",
-    "JUnit.BookRepositoryIntegrationTest.testFindAvailableBooks.executor": "Run",
-    "JUnit.BookRepositoryIntegrationTest.testGetAllBooks.executor": "Run",
-    "JUnit.BookRepositoryIntegrationTest.testSearchBooks (1).executor": "Run",
-    "JUnit.BookRepositoryIntegrationTest.testSearchBooks.executor": "Run",
-    "JUnit.BookRepositoryTest.executor": "Run",
-    "JUnit.BookRepositoryTest.testAddBookToDatabase (1).executor": "Run",
-    "JUnit.BookRepositoryTest.testAddBookToDatabase.executor": "Run",
-    "JUnit.BookServiceTest.executor": "Run",
-    "JUnit.BookServiceTest.testAddBook.executor": "Run",
-    "JUnit.BookServiceTest.testAddBookSuccessfully.executor": "Run",
-    "JUnit.BookServiceTest.testAddBookThrowsExceptionWhenBookExists.executor": "Run",
-    "JUnit.BookServiceTest.testAddBook_Success.executor": "Run",
-    "JUnit.BookServiceTest.testDeleteBook.executor": "Run",
-    "JUnit.BookServiceTest.testDeleteBookSuccessfully.executor": "Run",
-    "JUnit.BookServiceTest.testDeleteBookThrowsExceptionWhenBookNotFound.executor": "Run",
-    "JUnit.BookServiceTest.testDeleteBookThrowsExceptionWhenIsbnIsInvalid.executor": "Run",
-    "JUnit.BookServiceTest.testDeleteBookThrowsExceptionWhenIsbnIsNull.executor": "Run",
-    "JUnit.BookServiceTest.testGetAllBooks.executor": "Run",
-    "JUnit.BookServiceTest.testGetAvailableBooks.executor": "Run",
-    "JUnit.BookServiceTest.testGetBook.executor": "Run",
-    "JUnit.BookServiceTest.testGetBookSuccessfully.executor": "Run",
-    "JUnit.BookServiceTest.testGetBookThrowsExceptionWhenBookNotFound.executor": "Run",
-    "JUnit.BookServiceTest.testGetBookThrowsExceptionWhenIsbnIsEmpty.executor": "Run",
-    "JUnit.BookServiceTest.testGetBookThrowsExceptionWhenIsbnIsInvalid.executor": "Run",
-    "JUnit.BookServiceTest.testGetBookThrowsExceptionWhenIsbnIsNull.executor": "Run",
-    "JUnit.BookServiceTest.testSearchBooks.executor": "Run",
-    "JUnit.BookServiceTest.testUpdateBookSuccessfully.executor": "Run",
-    "JUnit.BookServiceTest.testUpdateBookThrowsExceptionWhenBookNotFound.executor": "Run",
-    "JUnit.BookServiceTest.testUpdateBook_Success.executor": "Run",
-    "JUnit.BookServiceTest.testValidateBookSuccessfully.executor": "Run",
-    "JUnit.BookServiceTest.testValidateBookThrowsException.executor": "Run",
-    "JUnit.BookServiceTest.testValidateBookThrowsExceptionWhenBookIsNull.executor": "Run",
-    "JUnit.BookServiceTest.testValidateBookThrowsExceptionWhenIsbnIsEmpty.executor": "Run",
-    "JUnit.BookServiceTest.testValidateBookThrowsExceptionWhenIsbnIsNull.executor": "Run",
-    "JUnit.BorrowedBookRepositoryIntegrationTest.executor": "Run",
-    "JUnit.BorrowedBookRepositoryIntegrationTest.testAddBorrowedBook.executor": "Run",
-    "JUnit.BorrowedBookRepositoryIntegrationTest.testGetAllBorrowedBooks.executor": "Run",
-    "JUnit.BorrowedBookRepositoryIntegrationTest.testGetBorrowedBooksByPatron.executor": "Run",
-    "JUnit.BorrowedBookRepositoryIntegrationTest.testReturnBook.executor": "Run",
-    "JUnit.BorrowedBookRepositoryTest.executor": "Run",
-    "JUnit.BorrowedBookServiceTest.executor": "Run",
-    "JUnit.BorrowedBookServiceTest.getAllBorrowedBooksTest.executor": "Run",
-    "JUnit.DatabaseUtilTest.testAddBookToDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testAddBorrowedBookToDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testAddLibrarianToDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testAddPatronToDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testAddTransactionToDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testDeleteBookFromDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testDeleteBorrowedBookFromDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testDeleteLibrarianFromDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testDeletePatronFromDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testGetBookFromDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testGetBorrowedBookFromDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testGetLibrarianFromDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testGetPatronFromDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testUpdateBookInDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testUpdateBorrowedBookInDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testUpdateLibrarianInDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testUpdatePatronInDatabase.executor": "Run",
-    "JUnit.DatabaseUtilTest.testUpdateTransactionInDatabase.executor": "Run",
-    "JUnit.LMSApplicationMainTest.executor": "Run",
-    "JUnit.LMSApplicationTest.executor": "Run",
-    "JUnit.LibrarianRepositoryIntegrationTest.executor": "Run",
-    "JUnit.LibrarianRepositoryIntegrationTest.testUpdateLibrarian.executor": "Run",
-    "JUnit.LibrarianRepositoryTest.executor": "Run",
-    "JUnit.PatronRepositoryIntegrationTest.executor": "Run",
-    "JUnit.PatronRepositoryIntegrationTest.testAddPatron.executor": "Run",
-    "JUnit.PatronRepositoryIntegrationTest.testGetAllPatrons.executor": "Run",
-    "JUnit.PatronRepositoryIntegrationTest.testGetPatronByEmail.executor": "Run",
-    "JUnit.PatronRepositoryTest.executor": "Run",
-    "JUnit.PatronServiceTest.executor": "Run",
-    "JUnit.TransactionRepositoryIntegrationTest.executor": "Run",
-    "JUnit.TransactionServiceTest.executor": "Run",
-    "Maven.LMS [clean].executor": "Run",
-    "Maven.LMS [test].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/macbookpro/Desktop/LMS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.3908046",
-    "settings.editor.selected.configurable": "project.propCompiler",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.DatabaseUtilTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.DatabaseUtilTestss.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LMSApplication.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthenticationServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthenticationServiceTest.testAuthenticateLibrarianSuccessfully.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookRepositoryIntegrationTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookRepositoryIntegrationTest.testAddBookToDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookRepositoryIntegrationTest.testFindAvailableBooks.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookRepositoryIntegrationTest.testGetAllBooks.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookRepositoryIntegrationTest.testSearchBooks (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookRepositoryIntegrationTest.testSearchBooks.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookRepositoryTest.testAddBookToDatabase (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookRepositoryTest.testAddBookToDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testAddBook.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testAddBookSuccessfully.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testAddBookThrowsExceptionWhenBookExists.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testAddBook_Success.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testDeleteBook.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testDeleteBookSuccessfully.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testDeleteBookThrowsExceptionWhenBookNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testDeleteBookThrowsExceptionWhenIsbnIsInvalid.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testDeleteBookThrowsExceptionWhenIsbnIsNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testGetAllBooks.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testGetAvailableBooks.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testGetBook.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testGetBookSuccessfully.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testGetBookThrowsExceptionWhenBookNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testGetBookThrowsExceptionWhenIsbnIsEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testGetBookThrowsExceptionWhenIsbnIsInvalid.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testGetBookThrowsExceptionWhenIsbnIsNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testSearchBooks.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testUpdateBookSuccessfully.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testUpdateBookThrowsExceptionWhenBookNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testUpdateBook_Success.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testValidateBookSuccessfully.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testValidateBookThrowsException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testValidateBookThrowsExceptionWhenBookIsNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testValidateBookThrowsExceptionWhenIsbnIsEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookServiceTest.testValidateBookThrowsExceptionWhenIsbnIsNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BorrowedBookRepositoryIntegrationTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BorrowedBookRepositoryIntegrationTest.testAddBorrowedBook.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BorrowedBookRepositoryIntegrationTest.testGetAllBorrowedBooks.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BorrowedBookRepositoryIntegrationTest.testGetBorrowedBooksByPatron.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BorrowedBookRepositoryIntegrationTest.testReturnBook.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BorrowedBookRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BorrowedBookServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BorrowedBookServiceTest.getAllBorrowedBooksTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testAddBookToDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testAddBorrowedBookToDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testAddLibrarianToDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testAddPatronToDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testAddTransactionToDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testDeleteBookFromDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testDeleteBorrowedBookFromDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testDeleteLibrarianFromDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testDeletePatronFromDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testGetBookFromDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testGetBorrowedBookFromDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testGetLibrarianFromDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testGetPatronFromDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testUpdateBookInDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testUpdateBorrowedBookInDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testUpdateLibrarianInDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testUpdatePatronInDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DatabaseUtilTest.testUpdateTransactionInDatabase.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LMSApplicationMainTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LMSApplicationTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibrarianRepositoryIntegrationTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibrarianRepositoryIntegrationTest.testUpdateLibrarian.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibrarianRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PatronRepositoryIntegrationTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PatronRepositoryIntegrationTest.testAddPatron.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PatronRepositoryIntegrationTest.testGetAllPatrons.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PatronRepositoryIntegrationTest.testGetPatronByEmail.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PatronRepositoryIntegrationTest.testGetPatronByEmailNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PatronRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PatronServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TransactionRepositoryIntegrationTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TransactionServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.LMS [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.LMS [test].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;refactor&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/macbookpro/Desktop/LMS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.3908046&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/org/example/lms/librarian" />
@@ -201,7 +192,20 @@
       <recent name="views" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PatronRepositoryIntegrationTest.testGetPatronByEmailNotFound">
+  <component name="RunManager" selected="Application.LMSApplication">
+    <configuration name="LMSApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.lms.app.LMSApplication" />
+      <module name="LMS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.lms.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BookRepositoryIntegrationTest.testSearchBooks (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LMS" />
       <extension name="coverage">
@@ -229,22 +233,6 @@
       <option name="PACKAGE_NAME" value="org.example.lms.repository" />
       <option name="MAIN_CLASS_NAME" value="org.example.lms.repository.BookRepositoryIntegrationTest" />
       <option name="METHOD_NAME" value="testSearchBooks(java.lang.String,java.lang.String)" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PatronRepositoryIntegrationTest.testAddPatron" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="LMS" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.lms.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example.lms.repository" />
-      <option name="MAIN_CLASS_NAME" value="org.example.lms.repository.PatronRepositoryIntegrationTest" />
-      <option name="METHOD_NAME" value="testAddPatron" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -284,11 +272,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LMSApplication" />
         <item itemvalue="JUnit.PatronRepositoryIntegrationTest.testGetPatronByEmailNotFound" />
         <item itemvalue="JUnit.PatronRepositoryIntegrationTest.testGetPatronByEmail" />
         <item itemvalue="JUnit.BookRepositoryIntegrationTest.testSearchBooks (1)" />
         <item itemvalue="JUnit.BookRepositoryIntegrationTest.testSearchBooks" />
-        <item itemvalue="JUnit.PatronRepositoryIntegrationTest.testAddPatron" />
       </list>
     </recent_temporary>
   </component>
@@ -316,11 +304,22 @@
       <workItem from="1721597830791" duration="5901000" />
       <workItem from="1721759598284" duration="104000" />
       <workItem from="1721760228390" duration="20898000" />
-      <workItem from="1721914656700" duration="26401000" />
+      <workItem from="1721914656700" duration="27510000" />
+      <workItem from="1722142826814" duration="9873000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

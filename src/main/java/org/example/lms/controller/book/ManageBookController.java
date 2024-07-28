@@ -10,6 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.example.lms.controller.LibrarianDashboardController;
 import org.example.lms.model.Book;
+import org.example.lms.repository.BookRepository;
 import org.example.lms.service.BookService;
 import org.example.lms.service.PatronService;
 
@@ -19,14 +20,10 @@ import java.io.IOException;
 
 public class ManageBookController {
 
-    // No-argument constructor
-    public ManageBookController() {
-    }
-
     @FXML
     private TextField searchBookField;
 
-    private static BookService bookService;
+    private BookService bookService;
     private PatronService patronService;
 
     @FXML
@@ -41,13 +38,20 @@ public class ManageBookController {
     @FXML
     private Button backToDashboardButton;
     @FXML
+    public Button addBookButton;
+    @FXML
     private Button editBookButton;
     @FXML
     private Button deleteBookButton;
 
+    // No-argument constructor
+    public ManageBookController() {
+    }
+
     // Method to set BookService and populate the table
     public void setBookService(BookService bookService) {
         this.bookService = bookService;
+        populateBooksTable(); // Call populateBooksTable after setting bookService
     }
 
     @FXML
@@ -76,30 +80,6 @@ public class ManageBookController {
         }
     }
 
-    private void handleSearch(String query) {
-        if (bookService != null) {
-            List<Book> filteredBooks = bookService.searchBooks(query);
-            booksTableView.setItems(FXCollections.observableArrayList(filteredBooks));
-        }
-    }
-
-    @FXML
-    private void handleBackToDashboard() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/lms/librarian/librarian_dashboard.fxml"));
-            Parent root = loader.load();
-
-            LibrarianDashboardController controller = loader.getController();
-            controller.setBookService(bookService); // Ensure BookService is set again
-
-            Stage stage = (Stage) backToDashboardButton.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Library Dashboard");
-        } catch (IOException e) {
-            showAlert(Alert.AlertType.ERROR, "Error", "Could not open the dashboard scene.");
-            e.printStackTrace();
-        }
-    }
 
     @FXML
     private void handleAddBook() {
@@ -111,12 +91,12 @@ public class ManageBookController {
             stage.setTitle("Add Book");
             stage.setScene(new Scene(root));
 
-            // Pass BookService to the controller
             AddBookController controller = loader.getController();
             controller.setBookService(bookService);
 
-            stage.show();
-            populateBooksTable();
+            stage.showAndWait(); // Wait for the AddBook window to close
+
+            populateBooksTable(); // Refresh the books table after adding a book
         } catch (IOException e) {
             showAlert(Alert.AlertType.ERROR, "Error", "Could not open the add book form.");
             e.printStackTrace();
@@ -165,6 +145,31 @@ public class ManageBookController {
             }
         } else {
             showAlert(Alert.AlertType.WARNING, "No Selection", "Please select a book to delete.");
+        }
+    }
+
+    private void handleSearch(String query) {
+        if (bookService != null) {
+            List<Book> filteredBooks = bookService.searchBooks(query);
+            booksTableView.setItems(FXCollections.observableArrayList(filteredBooks));
+        }
+    }
+
+    @FXML
+    private void handleBackToDashboard() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/lms/librarian/librarian_dashboard.fxml"));
+            Parent root = loader.load();
+
+            LibrarianDashboardController controller = loader.getController();
+            controller.setBookService(bookService); // Ensure BookService is set again
+
+            Stage stage = (Stage) backToDashboardButton.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Library Dashboard");
+        } catch (IOException e) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Could not open the dashboard scene.");
+            e.printStackTrace();
         }
     }
 

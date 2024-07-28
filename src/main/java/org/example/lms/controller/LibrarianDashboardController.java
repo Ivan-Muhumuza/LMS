@@ -13,6 +13,7 @@ import org.example.lms.model.Book;
 import org.example.lms.model.Librarian;
 import org.example.lms.model.Patron;
 import org.example.lms.repository.BookRepository;
+import org.example.lms.repository.BorrowedBookRepository;
 import org.example.lms.repository.PatronRepository;
 import org.example.lms.service.BookService;
 import org.example.lms.service.BorrowedBookService;
@@ -27,8 +28,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.TextField;
+import org.example.lms.util.DatabaseUtil;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 public class LibrarianDashboardController {
@@ -98,14 +102,16 @@ public class LibrarianDashboardController {
         searchField.textProperty().addListener((observable, oldValue, newValue) -> handleSearch(newValue));
 
         // Populate books table when the controller is initialized
-        populateBooksTable();
+//        populateBooksTable();
     }
 
-    // Method to populate the books table with data from the book service
-    private void populateBooksTable() {
+
+    public void populateBooksTable() {
         if (bookService != null) {
-            ObservableList<Book> books = bookService.getAllBooks();
-            booksTableView.setItems(books);
+            List<Book> books = bookService.getAllBooks();
+            booksTableView.getItems().setAll(books);
+        } else {
+            System.out.println("bookService is not set.");
         }
     }
 
@@ -140,6 +146,10 @@ public class LibrarianDashboardController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/lms/book/manage_book.fxml"));
             Parent root = loader.load();
+
+            ManageBookController controller = loader.getController();
+            controller.setBookService(bookService); // Ensure bookService is properly set
+
             Scene scene = new Scene(root);
             Stage primaryStage = (Stage) manageBooksButton.getScene().getWindow();
             primaryStage.setScene(scene);
@@ -150,27 +160,6 @@ public class LibrarianDashboardController {
         }
     }
 
-//    // Handler for the "Manage Books" button click event
-//    @FXML
-//    private void handleManageBooks() {
-//        try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/lms/book/manage_book.fxml"));
-//            Parent root = loader.load();
-//
-//            ManageBookController controller = loader.getController();
-//            controller.setBookService(bookService);
-//
-//            // Switch to the manage books scene
-//            Stage stage = (Stage) manageBooksButton.getScene().getWindow();
-//            stage.setScene(new Scene(root));
-//            stage.setTitle("Manage Books");
-//
-//        } catch (IOException e) {
-//            showAlert(Alert.AlertType.ERROR, "Error", "Could not open the manage book scene.");
-//            e.printStackTrace();
-//        }
-//    }
-
 
     // Handler for the "Manage Transactions" button click event
     @FXML
@@ -180,6 +169,15 @@ public class LibrarianDashboardController {
             Parent root = loader.load();
 
             ManageTransactionController controller = loader.getController();
+//            controller.setBorrowedBookService(borrowedBookService);
+            // Initialize your repositories
+            Connection connection = DatabaseUtil.getInstance().getConnection();
+            BorrowedBookRepository borrowedBookRepository = new BorrowedBookRepository(connection);
+
+            // Create the service with the repository
+            BorrowedBookService borrowedBookService = new BorrowedBookService(borrowedBookRepository);
+
+            // Set the service in the controller
             controller.setBorrowedBookService(borrowedBookService);
 
             // Switch to the manage transactions scene
@@ -190,6 +188,8 @@ public class LibrarianDashboardController {
         } catch (IOException e) {
             showAlert(Alert.AlertType.ERROR, "Error", "Could not open the manage transactions scene.");
             e.printStackTrace();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 

@@ -16,8 +16,8 @@ import java.util.List;
 
 public class BorrowedBooksViewController {
 
-    @FXML
-    private ComboBox<BorrowedBook> borrowedBookComboBox;
+//    @FXML
+//    private ComboBox<BorrowedBook> borrowedBookComboBox;
 
     @FXML
     private Button returnSelectedBookButton;
@@ -44,6 +44,7 @@ public class BorrowedBooksViewController {
 
     public void setBorrowedBookService(BorrowedBookService borrowedBookService) {
         this.borrowedBookService = borrowedBookService;
+        loadBorrowedBooks();
     }
 
     @FXML
@@ -53,38 +54,37 @@ public class BorrowedBooksViewController {
         borrowedDateColumn.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getBorrowedDate()));
         dueDateColumn.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getDueDate()));
 
-        borrowedBooksTableView.setItems(borrowedBooksList);
-        borrowedBookComboBox.setItems(borrowedBooksList);
-
-        if (borrowedBookService != null) {
-            loadBorrowedBooks();
-        } else {
-            System.out.println("borrowedBookService is not set.");
-        }
+        borrowedBooksTableView.getItems().clear();
+//        borrowedBookComboBox.setItems(borrowedBooksList);
+        loadBorrowedBooks();
     }
 
-
-    private void loadBorrowedBooks() {
+private void loadBorrowedBooks() {
+    if (borrowedBookService != null) {
         try {
             List<BorrowedBook> borrowedBooks = borrowedBookService.getAllBorrowedBooks();
-            borrowedBooksList.setAll(borrowedBooks);
+            borrowedBooksTableView.getItems().setAll(borrowedBooks);
         } catch (SQLException e) {
-            showAlert(AlertType.ERROR, "Error", "Unable to load borrowed books: " + e.getMessage());
+            e.printStackTrace();
         }
+    } else {
+        System.out.println("borrowedBookService is not set.");
     }
+}
 
     @FXML
     private void handleReturnSelectedBook() {
-        BorrowedBook selectedBook = borrowedBookComboBox.getSelectionModel().getSelectedItem();
+        BorrowedBook selectedBook = borrowedBooksTableView.getSelectionModel().getSelectedItem();
         if (selectedBook != null) {
             try {
                 borrowedBookService.returnBook(selectedBook.getPatronID(), selectedBook.getIsbn());
-                showAlert(AlertType.INFORMATION, "Book Returned", "Book successfully returned!");
+                showAlert(Alert.AlertType.INFORMATION, "Book Returned", "Book successfully returned!");
+                loadBorrowedBooks(); // Refresh the table after returning the book
             } catch (SQLException e) {
-                showAlert(AlertType.ERROR, "Error", e.getMessage());
+                showAlert(Alert.AlertType.ERROR, "Error", e.getMessage());
             }
         } else {
-            showAlert(AlertType.WARNING, "No Selection", "Please select a book to return.");
+            showAlert(Alert.AlertType.WARNING, "No Selection", "Please select a book to return.");
         }
     }
 

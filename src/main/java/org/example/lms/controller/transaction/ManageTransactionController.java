@@ -50,11 +50,20 @@ public class ManageTransactionController {
     @FXML
     private BorrowedBookService borrowedBookService;
 
-    private static BookService bookService;
+    private BookService bookService;
 
     private PatronRepository patronRepository;
 
     private BorrowedBookRepository borrowedBookRepository;
+
+    // No-argument constructor
+    public ManageTransactionController() {
+    }
+
+    // Constructor with BookService parameter
+    public ManageTransactionController(BookService bookService) {
+        this.bookService = bookService;
+    }
 
     @FXML
     private void initialize() throws SQLException {
@@ -106,20 +115,6 @@ public class ManageTransactionController {
         }
     }
 
-
-    @FXML
-    private void handleReturnBook() {
-        try {
-            long patronID = Long.parseLong(patronIDField.getText());
-            String isbn = isbnField.getText();
-
-            borrowedBookService.returnBook(patronID, isbn);
-            showAlert(Alert.AlertType.INFORMATION, "Book Returned", "Book successfully returned!");
-        } catch (SQLException | NumberFormatException e) {
-            showAlert(Alert.AlertType.ERROR, "Error", e.getMessage());
-        }
-    }
-
     @FXML
     private void handleViewBorrowedBooks() {
         try {
@@ -140,18 +135,6 @@ public class ManageTransactionController {
         }
     }
 
-//    @FXML
-//    private void handleBackToDashboard() throws IOException {
-//        // Load the Dashboard view
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/lms/librarian_dashboard.fxml"));
-//        ManageBookController.populateBooksTable();
-//        Parent root = loader.load();
-//        Scene scene = new Scene(root);
-//        Stage stage = (Stage) backToDashboardButton.getScene().getWindow();
-//        stage.setScene(scene);
-//        stage.show();
-//    }
-
     @FXML
     private void handleBackToDashboard() {
         try {
@@ -159,6 +142,7 @@ public class ManageTransactionController {
             Parent root = loader.load();
 
             LibrarianDashboardController controller = loader.getController();
+            controller.populateBooksTable();
             controller.setBookService(bookService); // Ensure PatronService is set again
 
             Stage stage = (Stage) backToDashboardButton.getScene().getWindow();
